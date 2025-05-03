@@ -15,1452 +15,1921 @@
       integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body::before {
+        --size: 120px;
+        --line: color-mix(in lch, canvasText, transparent 90%);
+        content: "";
+        height: 100vh;
+        width: 90vw;
+        position: absolute;
+        background: linear-gradient(
+              90deg,
+              var(--line) 1px,
+              transparent 1px var(--size)
+            )
+            50% 50% / var(--size) var(--size),
+          linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+            var(--size) var(--size);
+        mask: linear-gradient(-20deg, transparent 20%, white);
+        top: 0;
+        transform-style: flat;
+        pointer-events: none;
+        z-index: -1;
+      }
+  
+  
+      .end-cards-section::-webkit-scrollbar,
+      .cards-satr::-webkit-scrollbar,
+      .cards-section::-webkit-scrollbar {
+        height: 0;
+      }
+  
+      .scroll-companies {
+        mask: linear-gradient(
+          90deg,
+          transparent,
+          #fff 20%,
+          #fff 80%,
+          transparent
+        );
+        height: 2em;
+      }
+  
+      .scroll-companies .companies-logos {
+        animation: animate 15s linear infinite;
+      }
+  
+      @keyframes animate {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+  
+
+      /* HOVER */
+  
+      .hero-main-card-btn,
+      .bootcamp-card,
+      .card-btn,
+      .card-btn-text,
+      .cards-section,
+      .card-title-button,
+      .card-btn-icon,
+      .meeting-card,
+      .programs-card,
+      .card-news,
+      .card-news img,
+      .card-news button,
+      .card-overlay {
+        transition:all 0.5s !important;
+      }
+  
+      .hero-main-card-btn:hover {
+        box-shadow: none !important;
+      }
+  
+      .bootcamp-card:hover {
+        box-shadow: 8px 8px #6e91c3;
+      }
+      .programs-card:hover {
+        box-shadow: 8px 8px #e3a9ba;
+      }
+      .meeting-card:hover {
+        box-shadow: 8px 8px #6aa06d;
+      }
+  
+      .bootcamp-card:hover .card-btn-text {
+        display: inline !important;
+      }
+      .programs-card:hover .card-btn-text {
+        display: inline !important;
+      }
+      .meeting-card:hover .card-btn .card-btn-text {
+        display: inline !important;
+      }
+      .card-news:hover .card-overlay {
+        background-color: rgba(0, 0, 0, 0.2) !important;
+      }
+  
+      .card-news:hover img {
+        transform: scale(1.1) rotate(1deg);
+      }
+  
+      .card-news:hover .card-btn-news {
+        display: inline !important;
+      }
+      /* == HOVER == */
+  
+      /* // Large devices (desktops, 992px and up) */
+      @media (max-width: 992px) {
+        .partners,
+        .stat-rows,
+        .stat-row-1,
+        .stat-row-2,
+        .emp-rate,
+        .cont-bootcamps,
+        .satr-stat,
+        .cont-grad,
+        .newletter-btn {
+          width: 100% !important;
+        }
+        .partners{
+          height: 30em !important;
+          overflow: hidden;
+        }
+        .images-phone {
+          width: 40% !important;
+        }
+      }
+  
+      @media (min-width: 993px) and (max-width: 1119px) {
+        .images-phone {
+          width: 60% !important;
+        }
+      }
+      @media (min-width: 1000px) {
+        .card {
+          min-width: calc((100% - 2rem) / 3) !important;
+        }
+      }
+    </style>
   </head>
 
-  <style>
-    body::before {
-      --size: 120px;
-      --line: color-mix(in lch, canvasText, transparent 90%);
-      content: "";
-      height: 100vh;
-      width: 90vw;
-      position: absolute;
-      background: linear-gradient(
-            90deg,
-            var(--line) 1px,
-            transparent 1px var(--size)
-          )
-          50% 50% / var(--size) var(--size),
-        linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
-          var(--size) var(--size);
-      mask: linear-gradient(-20deg, transparent 20%, white);
-      top: 0;
-      transform-style: flat;
-      pointer-events: none;
-      z-index: -1;
-    }
 
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #b397ff;
-      border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background-color: #f0eaff;
-      border-radius: 10px;
-    }
-
-    .end-cards-section::-webkit-scrollbar,
-    .cards-satr::-webkit-scrollbar,
-    .cards-section::-webkit-scrollbar {
-      height: 0;
-    }
-    /* // Medium devices (tablets, 768px and up) */
-    @media (min-width: 768px) {
-    }
-
-    /* // Large devices (desktops, 992px and up) */
-    @media (max-width: 992px) {
-      .partners,
-      .stat-rows,
-      .stat-row-1,
-      .stat-row-2,
-      .emp-rate,
-      .cont-bootcamps,
-      .satr-stat,
-      .cont-grad {
-        width: 100% !important;
-      }
-      .images-phone {
-        width: 40% !important;
-      }
-    }
-
-    @media (min-width: 993px) and (max-width: 1119px) {
-      .images-phone {
-        width: 60% !important;
-      }
-    }
-    @media (min-width: 1000px) {
-      .bootcamp-card {
-        min-width: calc((100% - 2rem) / 3) !important;
-      }
-    }
-  </style>
   <body>
     <!-- NavBar -->
 
+    <section
+    style="background-color: rgba(255, 255, 255, 0.4);"
+    class="navbar-section d-flex w-100  mb-3 border-bottom position-sticky top-0 z-3 "
+  >
+    <nav class="navbar navbar-expand-lg w-100 navbar-light p-0 ">
+      <div class="container-fluid ">
+        <a
+          class="navbar-brand ms-4"
+          href="#"
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/landing/images/logo/logo-h.png"
+            alt="logo"
+            width="152"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse"
+          id="navbarSupportedContent"
+        >
+          <div
+            class="d-flex flex-column flex-lg-row w-75 justify-content-between align-items-start align-items-lg-center border rounded-3"
+           >
+            <ul
+              class="navbar-nav d-flex flex-grow-1 justify-content-between mb-3 mb-lg-0 bg-body-tertiary p-0"
+            >
+              <li class="nav-item ">
+                <a
+                style="background-color: #4f29b7"
+                class="nav-link rounded text-light p-2 px-3 "
+                  
+                  aria-current="page"
+                  href="./index.html"
+                  >الرئيسية</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+
+                  class="nav-link fw-bold "
+                  href="./about.html"
+                  >حول الأكادمية
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="nav-link fw-bold"
+                  href="#"
+                  >الأكادمية التابعات
+                </a>
+              </li>
+              <li class="h-8 flex items-center justify-content-center pt-lg-2">
+                <div class="">|</div>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link fw-bold"
+                  href="./testcenter.html"
+                >
+                  مركز الاختبارات</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link fw-bold"
+                  href="#"
+                  >شراكات</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link fw-bold"
+                  href="#"
+                  >الإعتمادات</a
+                >
+              </li>
+              <li>
+                <li class="h-8 flex items-center justify-content-center pt-lg-2">
+                  <div class="">|</div>
+                </li>
+              </li>
+              <li class="nav-item p-1">
+                <a
+                  style="background-color: #e3d8ff; color: #4f29b7"
+                  class="nav-link px-2 py-1 rounded fw-bold"
+                  href="#"
+                  >En</a
+                >
+              </li>
+            </ul>
+          </div>
+          <button
+            style="background-color: #4f29b7"
+            class="btn text-light me-5 fw-bold"
+            type="submit"
+          >
+            تسجيل دخول
+          </button>
+        </div>
+      </div>
+    </nav>
+   
+  </section>
+
     <!-- == NavBar == -->
     <!-- Content -->
-    <section class="">
-      <!-- Hero-section -->
-      <section
-        class="Hero-section container-xxl d-flex flex-column flex-md-row pt-5 mb-3 gap-4"
+
+    <!-- Hero-section -->
+    <section
+      class="Hero-section container-xxl d-flex flex-column flex-md-row pt-5 mb-3 gap-4"
+    >
+      <div
+        style="background-color: rgb(231 221 255); overflow: hidden"
+        class="hero-main-card d-flex flex-column justify-content-end rounded-4"
       >
-        <div
-          style="background-color: rgb(231 221 255); overflow: hidden"
-          class="hero-main-card d-flex flex-column rounded-4"
-        >
-          <div class="hero-main-card-text w-75 p-5">
-            <h1 style="color: rgb(79 41 183)" class="fw-normal">
-              تعلم تقنيات المستقبل
-            </h1>
-            <h1 style="color: rgb(79 41 183)" class="fw-normal">
-              في مكانٍ واحد
-            </h1>
-            <p class="fs-6 fw-light">
-              معسكرات وبرامج احترافية بالشراكة مع كبرى الجهات العالمية؛ لتطوير
-              مهاراتك في مجالات التقنيات الحديثة، بمنهجيّة تعلُّم قائمة على
-              التطبيقات العملية، ضمن بيئة تعليمية محفزة وتنافسية.
-            </p>
-            <button
-              style="color: rgb(79 41 183)"
-              class="py-2 px-5 rounded-3 fs-3 bg-white"
+        <div class="hero-main-card-text w-75 p-5">
+          <h1 style="color: rgb(79 41 183)" class="fw-normal">
+            تعلم تقنيات المستقبل
+          </h1>
+          <h1 style="color: rgb(79 41 183)" class="fw-normal">في مكانٍ واحد</h1>
+          <p class="fs-6 fw-light">
+            معسكرات وبرامج احترافية بالشراكة مع كبرى الجهات العالمية؛ لتطوير
+            مهاراتك في مجالات التقنيات الحديثة، بمنهجيّة تعلُّم قائمة على
+            التطبيقات العملية، ضمن بيئة تعليمية محفزة وتنافسية.
+          </p>
+          <button
+            style="
+              color: rgb(79 41 183);
+              box-shadow: 5px 5px #4f29b7;
+              border: 2px solid rgb(79 41 183);
+            "
+            class="hero-main-card-btn py-2 px-5 rounded-3 fs-3 bg-white"
+          >
+            ابدأ
+            <span
+              ><svg
+                width="28"
+                height="16"
+                viewBox="0 0 28 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.8125 1.06869C10.8125 0.873836 10.8979 0.68696 11.05 0.549176C11.2021 0.411391 11.4084 0.333984 11.6234 0.333984H15.4078C15.6229 0.333984 15.8292 0.411391 15.9812 0.549176C16.1333 0.68696 16.2188 0.873836 16.2188 1.06869V4.49733C16.2188 4.69218 16.1333 4.87906 15.9812 5.01684C15.8292 5.15463 15.6229 5.23203 15.4078 5.23203H11.6234C11.4084 5.23203 11.2021 5.15463 11.05 5.01684C10.8979 4.87906 10.8125 4.69218 10.8125 4.49733V1.06869Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+                <path
+                  d="M11.6219 5.23275C11.4068 5.23275 11.2005 5.31016 11.0485 5.44794C10.8964 5.58573 10.8109 5.7726 10.8109 5.96746L10 5.23275C10.2151 5.23275 10.4213 5.15535 10.5734 5.01756C10.7255 4.87978 10.8109 4.6929 10.8109 4.49805L11.6219 5.23275Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+                <path
+                  d="M5.40625 5.96713C5.40625 5.77227 5.49169 5.5854 5.64377 5.44761C5.79585 5.30983 6.00212 5.23242 6.21719 5.23242H10.0016C10.2167 5.23242 10.4229 5.30983 10.575 5.44761C10.7271 5.5854 10.8125 5.77227 10.8125 5.96713V9.39577C10.8125 9.59062 10.7271 9.7775 10.575 9.91528C10.4229 10.0531 10.2167 10.1305 10.0016 10.1305H6.21719C6.00212 10.1305 5.79585 10.0531 5.64377 9.91528C5.49169 9.7775 5.40625 9.59062 5.40625 9.39577V5.96713Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+                <path
+                  d="M10 10.1292C10.2151 10.1292 10.4213 10.2066 10.5734 10.3444C10.7255 10.4822 10.8109 10.6691 10.8109 10.8639L11.6219 10.1292C11.4068 10.1292 11.2005 10.0518 11.0485 9.91405C10.8964 9.77626 10.8109 9.58939 10.8109 9.39453L10 10.1292Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+                <path
+                  d="M6.21563 10.1292C6.00056 10.1292 5.79429 10.2066 5.64221 10.3444C5.49013 10.4822 5.40469 10.6691 5.40469 10.8639L4.59375 10.1292C4.80882 10.1292 5.01509 10.0518 5.16717 9.91405C5.31925 9.77626 5.40469 9.58939 5.40469 9.39453L6.21563 10.1292Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+                <path
+                  d="M0 10.8656C0 10.6707 0.0854386 10.4838 0.237519 10.346C0.3896 10.2083 0.595865 10.1309 0.81094 10.1309H4.59533C4.8104 10.1309 5.01667 10.2083 5.16875 10.346C5.32083 10.4838 5.40627 10.6707 5.40627 10.8656V14.2942C5.40627 14.4891 5.32083 14.6759 5.16875 14.8137C5.01667 14.9515 4.8104 15.0289 4.59533 15.0289H0.81094C0.595865 15.0289 0.3896 14.9515 0.237519 14.8137C0.0854386 14.6759 0 14.4891 0 14.2942V10.8656Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+                <path
+                  d="M4.59375 15.0277C4.80882 15.0277 5.01509 15.1051 5.16717 15.2429C5.31925 15.3807 5.40469 15.5675 5.40469 15.7624L6.21563 15.0277C6.00056 15.0277 5.79429 14.9503 5.64221 14.8125C5.49013 14.6747 5.40469 14.4878 5.40469 14.293L4.59375 15.0277Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+                <path
+                  d="M5.40625 15.7621C5.40625 15.5672 5.49169 15.3803 5.64377 15.2425C5.79585 15.1047 6.00212 15.0273 6.21719 15.0273H10.0016C10.2167 15.0273 10.4229 15.1047 10.575 15.2425C10.7271 15.3803 10.8125 15.5672 10.8125 15.7621V19.1907C10.8125 19.3855 10.7271 19.5724 10.575 19.7102C10.4229 19.848 10.2167 19.9254 10.0016 19.9254H6.21719C6.00212 19.9254 5.79585 19.848 5.64377 19.7102C5.49169 19.5724 5.40625 19.3855 5.40625 19.1907V15.7621Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+                <path
+                  d="M10 19.9261C10.2151 19.9261 10.4213 20.0035 10.5734 20.1413C10.7255 20.2791 10.8109 20.466 10.8109 20.6608L11.6219 19.9261C11.4068 19.9261 11.2005 19.8487 11.0485 19.7109C10.8964 19.5731 10.8109 19.3863 10.8109 19.1914L10 19.9261Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+                <path
+                  d="M10.8125 20.6605C10.8125 20.4656 10.8979 20.2788 11.05 20.141C11.2021 20.0032 11.4084 19.9258 11.6234 19.9258H15.4078C15.6229 19.9258 15.8292 20.0032 15.9812 20.141C16.1333 20.2788 16.2188 20.4656 16.2188 20.6605V24.0891C16.2188 24.284 16.1333 24.4709 15.9812 24.6086C15.8292 24.7464 15.6229 24.8238 15.4078 24.8238H11.6234C11.4084 24.8238 11.2021 24.7464 11.05 24.6086C10.8979 24.4709 10.8125 24.284 10.8125 24.0891V20.6605Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+                <path
+                  d="M10.8125 10.8656C10.8125 10.6707 10.8979 10.4838 11.05 10.346C11.2021 10.2083 11.4084 10.1309 11.6234 10.1309H15.4078C15.6229 10.1309 15.8292 10.2083 15.9812 10.346C16.1333 10.4838 16.2188 10.6707 16.2188 10.8656V14.2942C16.2188 14.4891 16.1333 14.6759 15.9812 14.8137C15.8292 14.9515 15.6229 15.0289 15.4078 15.0289H11.6234C11.4084 15.0289 11.2021 14.9515 11.05 14.8137C10.8979 14.6759 10.8125 14.4891 10.8125 14.2942V10.8656Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+                <path
+                  d="M13.5156 10.1309H18.9219V15.0289H13.5156V10.1309Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+                <path
+                  d="M11.6219 15.0277C11.4068 15.0277 11.2005 15.1051 11.0485 15.2429C10.8964 15.3807 10.8109 15.5675 10.8109 15.7624L10 15.0277C10.2151 15.0277 10.4213 14.9503 10.5734 14.8125C10.7255 14.6747 10.8109 14.4878 10.8109 14.293L11.6219 15.0277Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+                <path
+                  d="M16.2188 10.8656C16.2188 10.6707 16.3042 10.4838 16.4563 10.346C16.6083 10.2083 16.8146 10.1309 17.0297 10.1309H20.8141C21.0292 10.1309 21.2354 10.2083 21.3875 10.346C21.5396 10.4838 21.625 10.6707 21.625 10.8656V14.2942C21.625 14.4891 21.5396 14.6759 21.3875 14.8137C21.2354 14.9515 21.0292 15.0289 20.8141 15.0289H17.0297C16.8146 15.0289 16.6083 14.9515 16.4563 14.8137C16.3042 14.6759 16.2188 14.4891 16.2188 14.2942V10.8656Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+                <path
+                  d="M18.9219 10.1309H24.3281V15.0289H18.9219V10.1309Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+                <path
+                  d="M21.625 10.8656C21.625 10.6707 21.7104 10.4838 21.8625 10.346C22.0146 10.2083 22.2209 10.1309 22.4359 10.1309H26.2203C26.4354 10.1309 26.6417 10.2083 26.7937 10.346C26.9458 10.4838 27.0313 10.6707 27.0313 10.8656V14.2942C27.0313 14.4891 26.9458 14.6759 26.7937 14.8137C26.6417 14.9515 26.4354 15.0289 26.2203 15.0289H22.4359C22.2209 15.0289 22.0146 14.9515 21.8625 14.8137C21.7104 14.6759 21.625 14.4891 21.625 14.2942V10.8656Z"
+                  :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
+                  fill="#4F29B7"
+                ></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+
+        <div class="hero-main-card-images position-relative py-3">
+          <img
+            src="https://tuwaiq.edu.sa/img/Tuwaiq_mounten.png"
+            alt="Tuwaiq-mount"
+            class="position-absolute bottom-0 end-50 z-1"
+            width="800"
+          />
+
+          <div class="scroll-companies w-100">
+            <div
+              class="companies-logos d-flex w-50 position-absolute bottom-50 start-50 gap-4"
             >
-              ابدأ
-              <span
-                ><svg
-                  width="28"
-                  height="25"
-                  viewBox="0 0 28 25"
-                  fill="none"
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/microsoft.png"
+                height="16"
+                alt="microsoft"
+              />
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/meta.png"
+                alt="meta"
+                height="16"
+              />
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/ibm.png"
+                alt="IBM"
+                height="16"
+              />
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/ct.png"
+                alt="CampTIA"
+                height="16"
+              />
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/cn.png"
+                alt="certNexus"
+                height="16"
+              />
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/aws.png"
+                alt="aws"
+                height="16"
+              />
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/Apple.png"
+                alt="apple"
+                height="16"
+              />
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/ac2.png"
+                alt="alibaba"
+                height="16"
+              />
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/microsoft.png"
+                height="16"
+                alt="microsoft"
+              />
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/meta.png"
+                alt="meta"
+                height="16"
+              />
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/ibm.png"
+                alt="IBM"
+                height="16"
+              />
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/ct.png"
+                alt="CampTIA"
+                height="16"
+              />
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/cn.png"
+                alt="certNexus"
+                height="16"
+              />
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/aws.png"
+                alt="aws"
+                height="16"
+              />
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/Apple.png"
+                alt="apple"
+                height="16"
+              />
+              <img
+                src="https://tuwaiq.edu.sa/img/Brands/ac2.png"
+                alt="alibaba"
+                height="16"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-sub-cards d-flex flex-column gap-3">
+        <div
+          style="background-color: rgb(191 255 250); color: rgb(0 135 125)"
+          class="student-count p-4 rounded-3"
+        >
+          <h6 class="fw-medium">عدد المسجلين في المعسكرات والبرامج حتى الآن</h6>
+          <h4 class="fw-bolder">١٬٧١٥٬٣٥٨</h4>
+        </div>
+        <div
+          style="background-color: rgb(255 221 225)"
+          class="holeprton-bootcamp d-flex flex-column justify-content-around p-4 rounded-3 h-100"
+        >
+          <div class="title-button d-flex justify-content-between">
+            <h5 style="color: rgb(255 83 109)" class="fw-bolder">
+              هولبيرتون المسار التأسيسي
+            </h5>
+            <button
+              style="background-color: rgb(255 83 109)"
+              class="text-white p-1 border-0 rounded-4 fs-6"
+            >
+              سجل الآن
+              <span>
+                <svg
+                  class=""
                   xmlns="http://www.w3.org/2000/svg"
+                  fill="white"
+                  viewBox="0 0 384 512"
+                  style="width: 10px"
                 >
                   <path
-                    d="M10.8125 1.06869C10.8125 0.873836 10.8979 0.68696 11.05 0.549176C11.2021 0.411391 11.4084 0.333984 11.6234 0.333984H15.4078C15.6229 0.333984 15.8292 0.411391 15.9812 0.549176C16.1333 0.68696 16.2188 0.873836 16.2188 1.06869V4.49733C16.2188 4.69218 16.1333 4.87906 15.9812 5.01684C15.8292 5.15463 15.6229 5.23203 15.4078 5.23203H11.6234C11.4084 5.23203 11.2021 5.15463 11.05 5.01684C10.8979 4.87906 10.8125 4.69218 10.8125 4.49733V1.06869Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
-                  ></path>
-                  <path
-                    d="M11.6219 5.23275C11.4068 5.23275 11.2005 5.31016 11.0485 5.44794C10.8964 5.58573 10.8109 5.7726 10.8109 5.96746L10 5.23275C10.2151 5.23275 10.4213 5.15535 10.5734 5.01756C10.7255 4.87978 10.8109 4.6929 10.8109 4.49805L11.6219 5.23275Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
-                  ></path>
-                  <path
-                    d="M5.40625 5.96713C5.40625 5.77227 5.49169 5.5854 5.64377 5.44761C5.79585 5.30983 6.00212 5.23242 6.21719 5.23242H10.0016C10.2167 5.23242 10.4229 5.30983 10.575 5.44761C10.7271 5.5854 10.8125 5.77227 10.8125 5.96713V9.39577C10.8125 9.59062 10.7271 9.7775 10.575 9.91528C10.4229 10.0531 10.2167 10.1305 10.0016 10.1305H6.21719C6.00212 10.1305 5.79585 10.0531 5.64377 9.91528C5.49169 9.7775 5.40625 9.59062 5.40625 9.39577V5.96713Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
-                  ></path>
-                  <path
-                    d="M10 10.1292C10.2151 10.1292 10.4213 10.2066 10.5734 10.3444C10.7255 10.4822 10.8109 10.6691 10.8109 10.8639L11.6219 10.1292C11.4068 10.1292 11.2005 10.0518 11.0485 9.91405C10.8964 9.77626 10.8109 9.58939 10.8109 9.39453L10 10.1292Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
-                  ></path>
-                  <path
-                    d="M6.21563 10.1292C6.00056 10.1292 5.79429 10.2066 5.64221 10.3444C5.49013 10.4822 5.40469 10.6691 5.40469 10.8639L4.59375 10.1292C4.80882 10.1292 5.01509 10.0518 5.16717 9.91405C5.31925 9.77626 5.40469 9.58939 5.40469 9.39453L6.21563 10.1292Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
-                  ></path>
-                  <path
-                    d="M0 10.8656C0 10.6707 0.0854386 10.4838 0.237519 10.346C0.3896 10.2083 0.595865 10.1309 0.81094 10.1309H4.59533C4.8104 10.1309 5.01667 10.2083 5.16875 10.346C5.32083 10.4838 5.40627 10.6707 5.40627 10.8656V14.2942C5.40627 14.4891 5.32083 14.6759 5.16875 14.8137C5.01667 14.9515 4.8104 15.0289 4.59533 15.0289H0.81094C0.595865 15.0289 0.3896 14.9515 0.237519 14.8137C0.0854386 14.6759 0 14.4891 0 14.2942V10.8656Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
-                  ></path>
-                  <path
-                    d="M4.59375 15.0277C4.80882 15.0277 5.01509 15.1051 5.16717 15.2429C5.31925 15.3807 5.40469 15.5675 5.40469 15.7624L6.21563 15.0277C6.00056 15.0277 5.79429 14.9503 5.64221 14.8125C5.49013 14.6747 5.40469 14.4878 5.40469 14.293L4.59375 15.0277Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
-                  ></path>
-                  <path
-                    d="M5.40625 15.7621C5.40625 15.5672 5.49169 15.3803 5.64377 15.2425C5.79585 15.1047 6.00212 15.0273 6.21719 15.0273H10.0016C10.2167 15.0273 10.4229 15.1047 10.575 15.2425C10.7271 15.3803 10.8125 15.5672 10.8125 15.7621V19.1907C10.8125 19.3855 10.7271 19.5724 10.575 19.7102C10.4229 19.848 10.2167 19.9254 10.0016 19.9254H6.21719C6.00212 19.9254 5.79585 19.848 5.64377 19.7102C5.49169 19.5724 5.40625 19.3855 5.40625 19.1907V15.7621Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
-                  ></path>
-                  <path
-                    d="M10 19.9261C10.2151 19.9261 10.4213 20.0035 10.5734 20.1413C10.7255 20.2791 10.8109 20.466 10.8109 20.6608L11.6219 19.9261C11.4068 19.9261 11.2005 19.8487 11.0485 19.7109C10.8964 19.5731 10.8109 19.3863 10.8109 19.1914L10 19.9261Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
-                  ></path>
-                  <path
-                    d="M10.8125 20.6605C10.8125 20.4656 10.8979 20.2788 11.05 20.141C11.2021 20.0032 11.4084 19.9258 11.6234 19.9258H15.4078C15.6229 19.9258 15.8292 20.0032 15.9812 20.141C16.1333 20.2788 16.2188 20.4656 16.2188 20.6605V24.0891C16.2188 24.284 16.1333 24.4709 15.9812 24.6086C15.8292 24.7464 15.6229 24.8238 15.4078 24.8238H11.6234C11.4084 24.8238 11.2021 24.7464 11.05 24.6086C10.8979 24.4709 10.8125 24.284 10.8125 24.0891V20.6605Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
-                  ></path>
-                  <path
-                    d="M10.8125 10.8656C10.8125 10.6707 10.8979 10.4838 11.05 10.346C11.2021 10.2083 11.4084 10.1309 11.6234 10.1309H15.4078C15.6229 10.1309 15.8292 10.2083 15.9812 10.346C16.1333 10.4838 16.2188 10.6707 16.2188 10.8656V14.2942C16.2188 14.4891 16.1333 14.6759 15.9812 14.8137C15.8292 14.9515 15.6229 15.0289 15.4078 15.0289H11.6234C11.4084 15.0289 11.2021 14.9515 11.05 14.8137C10.8979 14.6759 10.8125 14.4891 10.8125 14.2942V10.8656Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
-                  ></path>
-                  <path
-                    d="M13.5156 10.1309H18.9219V15.0289H13.5156V10.1309Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
-                  ></path>
-                  <path
-                    d="M11.6219 15.0277C11.4068 15.0277 11.2005 15.1051 11.0485 15.2429C10.8964 15.3807 10.8109 15.5675 10.8109 15.7624L10 15.0277C10.2151 15.0277 10.4213 14.9503 10.5734 14.8125C10.7255 14.6747 10.8109 14.4878 10.8109 14.293L11.6219 15.0277Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
-                  ></path>
-                  <path
-                    d="M16.2188 10.8656C16.2188 10.6707 16.3042 10.4838 16.4563 10.346C16.6083 10.2083 16.8146 10.1309 17.0297 10.1309H20.8141C21.0292 10.1309 21.2354 10.2083 21.3875 10.346C21.5396 10.4838 21.625 10.6707 21.625 10.8656V14.2942C21.625 14.4891 21.5396 14.6759 21.3875 14.8137C21.2354 14.9515 21.0292 15.0289 20.8141 15.0289H17.0297C16.8146 15.0289 16.6083 14.9515 16.4563 14.8137C16.3042 14.6759 16.2188 14.4891 16.2188 14.2942V10.8656Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
-                  ></path>
-                  <path
-                    d="M18.9219 10.1309H24.3281V15.0289H18.9219V10.1309Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
-                  ></path>
-                  <path
-                    d="M21.625 10.8656C21.625 10.6707 21.7104 10.4838 21.8625 10.346C22.0146 10.2083 22.2209 10.1309 22.4359 10.1309H26.2203C26.4354 10.1309 26.6417 10.2083 26.7937 10.346C26.9458 10.4838 27.0313 10.6707 27.0313 10.8656V14.2942C27.0313 14.4891 26.9458 14.6759 26.7937 14.8137C26.6417 14.9515 26.4354 15.0289 26.2203 15.0289H22.4359C22.2209 15.0289 22.0146 14.9515 21.8625 14.8137C21.7104 14.6759 21.625 14.4891 21.625 14.2942V10.8656Z"
-                    :fill="theme === 'founding_day' ? '#684F46' : '#4F29B7'"
-                    fill="#4F29B7"
+                    d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
                   ></path>
                 </svg>
               </span>
             </button>
           </div>
+          <div class="title info">
+            <p class="fw-light w-75">
+              المسار التأسيسي لأكاديمية هولبيرتون العالمية الأولى في الشرق
+              الأوسط
+            </p>
+          </div>
 
-          <div class="hero-main-card-images position-relative py-5">
-            <img
-              src="https://tuwaiq.edu.sa/img/Tuwaiq_mounten.png"
-              alt="Tuwaiq-mount"
-              class="position-absolute bottom-0 end-50"
-              width="800"
-            />
+          <div
+            style="background-color: #ffffffb3"
+            class="card-image bg-white rounded-3 d-flex justify-content-center flex-column"
+          >
+            <div class="card-images d-flex justify-content-between">
+              <div
+                style="transform: rotate(3deg)"
+                class="image-1 d-flex justify-content-center bg-white shadow px-3 rounded-3"
+              >
+                <img
+                  class="object-fit-cover w-100 h-100"
+                  src="https://tuwaiq.edu.sa/img/6.svg"
+                  alt="laptop"
+                />
+              </div>
+              <div
+                class="image-2 d-flex justify-content-center bg-white shadow px-3 rounded-3"
+              >
+                <img
+                  class="object-fit-cover w-100 h-100"
+                  src="https://tuwaiq.edu.sa/img/11.svg"
+                  alt="headset"
+                />
+              </div>
+              <div
+                style="transform: rotate(-3deg)"
+                class="image-3 d-flex justify-content-center bg-white shadow px-3 rounded-3"
+              >
+                <img
+                  class="object-fit-cover w-100 h-100"
+                  src="https://tuwaiq.edu.sa/img/1.svg"
+                  alt="keyboard"
+                />
+              </div>
+            </div>
+            <div class="company-logo company-logo text-center">
+              <img
+                src="https://tuwaiq.edu.sa/img/Holberton.png"
+                alt="holberton-logo"
+                class="z1"
+                width="150"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- == Hero-section == -->
+
+    <!-- Cards -->
+    <section
+      style="overflow-x: auto; transition: 0.5s"
+      class="cards-section container-xxl d-flex justify-content-between gap-3"
+    >
+      <div
+        style="background-color: rgb(190 217 255); min-width: 75%"
+        class="bootcamp-card card p-4 rounded-4 overflow-hidden"
+      >
+        <div class="card-title-button d-flex justify-content-between">
+          <h4>المعسكرات</h4>
+          <button class="card-btn bg-white rounded-4 border border-0">
+            <span class="card-btn-text d-none"> المزيد </span>
+            <span class="card-btn-icon"
+              ><svg
+                class="group-hover:mr-4 left-[15px] absolute"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                width="18"
+                viewBox="0 0 384 512"
+              >
+                <path
+                  d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+        <p class="fw-light w-75">
+          معسكرات منتهية بالتوظيف للمتميزين، مبنيّة على احتياجات سوق العمل، تقام
+          لمدة 1-9 أشهر بشهادات احترافية في العديد من المجالات التقنية.
+        </p>
+
+        <img
+          width="350"
+          src="https://tuwaiq.edu.sa/img/ART/Asset%201.png"
+          alt="bootcamp-img"
+        />
+      </div>
+      <div
+        style="background-color: rgb(255 231 239); min-width: 75%"
+        class="programs-card card p-4 rounded-4 position-relative overflow-hidden w-lg-100"
+      >
+        <div class="card-title-button d-flex justify-content-between">
+          <h4>البرامج</h4>
+          <button class="card-btn bg-white rounded-4 border border-0">
+            <span class="card-btn-text d-none"> المزيد </span>
+
+            <span
+              ><svg
+                class="group-hover:mr-4 left-[15px] absolute"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                width="18"
+                viewBox="0 0 384 512"
+              >
+                <path
+                  d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+        <p class="fw-light w-75">
+          برامج احترافية لمدة 1-3 أسابيع، تستهدف تطوير قدراتك التقنية؛ بمنهجيّة
+          تعلُّم نوعية، وبيئة تنافسية قائمة على التطبيقات العملية.
+        </p>
+
+        <img
+          class="position-absolute bottom-0 end-0"
+          width="400"
+          src="https://tuwaiq.edu.sa/img/art_for_programs.svg"
+          alt="programs-img"
+        />
+      </div>
+      <div
+        style="background-color: rgb(211 255 213); min-width: 75%"
+        class="meeting-card card p-4 rounded-4 position-relative overflow-hidden w-100"
+      >
+        <div class="card-title-button d-flex justify-content-between">
+          <h4>اللقاءات</h4>
+          <button class="card-btn bg-white rounded-4 border border-0">
+            <span class="card-btn-text d-none"> المزيد </span>
+            <span
+              ><svg
+                class="group-hover:mr-4 left-[15px] absolute"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                width="18"
+                viewBox="0 0 384 512"
+              >
+                <path
+                  d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+        <p class="fw-light w-75">
+          لقاءات معرفيّة إثرائية، تقام بالتعاون مع عدة جهات رائدة ومتقدمة؛
+          لمناقشة مختلف مواضيع التقنيات الحديثة، والتواصل، والأعمال.
+        </p>
+
+        <img
+          class="position-absolute top-50 start-0"
+          width="350"
+          src="https://tuwaiq.edu.sa/img/ART/Asset%203.svg"
+          alt="meeting-img"
+        />
+      </div>
+    </section>
+
+    <!-- == Cards == -->
+
+    <!-- End Soon -->
+    <section class="end-section container-xxl d-flex flex-column gap-3 my-4">
+      <div class="title-end d-flex justify-content-between align-items-center">
+        <div class="title-section d-flex align-items-center">
+          <h4 class="mx-4">ينتهي التسجيل قريبًا</h4>
+          <a
+            class="link-offset-2 link-underline link-underline-opacity-0"
+            href="#"
+          >
+            عرض المزيد ></a
+          >
+        </div>
+        <div class="end-cards-arrows d-none d-md-block">
+          <span class="left">
+            <svg
+              style="width: 30px; background-color: rgb(238 238 238)"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="rounded-circle"
+              :class="{'!text-[#93726670]': theme === 'founding_day'}"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </span>
+
+          <span>
+            <svg
+              style="width: 30px; background-color: rgb(238 238 238)"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="rounded-circle"
+              :class="{'!text-[#93726670]': theme === 'founding_day'}"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        style="overflow-x: auto"
+        class="end-cards-section d-flex justify-content-between gap-3"
+      >
+        <div
+          class="card-ends p-2 border-0 rounded-3"
+          style="min-width: 20rem; background-color: rgb(245 245 247)"
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
+            class="card-img-top"
+            alt="end-courses-img"
+          />
+          <div class="card-body">
+            <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
+            <h6 class="card-title">
+              تطبيق قاعدة بيانات SQL باستخدام لغة Python
+            </h6>
+            <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
+              <p>برنامج - أسبوع</p>
+              <p>كبار</p>
+            </div>
+            <ul class="text-success m-0 px-3">
+              <li>ينتهي بعد 8 ايام</li>
+            </ul>
           </div>
         </div>
 
-        <div class="hero-sub-cards d-flex flex-column gap-3">
-          <div
-            style="background-color: rgb(191 255 250); color: rgb(0 135 125)"
-            class="student-count p-4 rounded-3"
-          >
-            <h6 class="fw-medium">
-              عدد المسجلين في المعسكرات والبرامج حتى الآن
-            </h6>
-            <h4 class="fw-bolder">١٬٧١٥٬٣٥٨</h4>
-          </div>
-          <div
-            style="background-color: rgb(255 221 225)"
-            class="holeprton-bootcamp d-flex flex-column justify-content-around p-4 rounded-3 h-100"
-          >
-            <div class="title-button d-flex justify-content-between">
-              <h5 style="color: rgb(255 83 109)" class="fw-bolder">
-                هولبيرتون المسار التأسيسي
-              </h5>
-              <button
-                style="background-color: rgb(255 83 109)"
-                class="text-white p-2 rounded-4 fs-6"
-              >
-                سجل الآن
-                <span>
-                  <svg
-                    class=""
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="white"
-                    viewBox="0 0 384 512"
-                    style="width: 10px"
-                  >
-                    <path
-                      d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
-                    ></path>
-                  </svg>
-                </span>
-              </button>
+        <div
+          class="card-ends p-2 border-0 rounded-3"
+          style="min-width: 20rem; background-color: rgb(245 245 247)"
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
+            class="card-img-top"
+            alt="end-courses-img"
+          />
+          <div class="card-body">
+            <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
+            <h5 class="card-title">
+              تطبيق قاعدة بيانات SQL باستخدام لغة Python
+            </h5>
+            <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
+              <p>برنامج - أسبوع</p>
+              <p>كبار</p>
             </div>
-            <div class="title info">
-              <p class="fw-light w-75">
-                المسار التأسيسي لأكاديمية هولبيرتون العالمية الأولى في الشرق
-                الأوسط
+            <ul class="text-success m-0 px-3">
+              <li>ينتهي بعد 8 ايام</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="card-ends p-2 border-0 rounded-3"
+          style="min-width: 20rem; background-color: rgb(245 245 247)"
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
+            class="card-img-top"
+            alt="end-courses-img"
+          />
+          <div class="card-body">
+            <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
+            <h5 class="card-title">
+              تطبيق قاعدة بيانات SQL باستخدام لغة Python
+            </h5>
+            <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
+              <p>برنامج - أسبوع</p>
+              <p>كبار</p>
+            </div>
+            <ul class="text-success m-0 px-3">
+              <li>ينتهي بعد 8 ايام</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="card-ends p-2 border-0 rounded-3"
+          style="min-width: 20rem; background-color: rgb(245 245 247)"
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
+            class="card-img-top"
+            alt=""
+          />
+          <div class="card-body">
+            <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
+            <h5 class="card-title">
+              تطبيق قاعدة بيانات SQL باستخدام لغة Python
+            </h5>
+            <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
+              <p>برنامج - أسبوع</p>
+              <p>كبار</p>
+            </div>
+            <ul class="text-success m-0 px-3">
+              <li>ينتهي بعد 8 ايام</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="card-ends p-2 border-0 rounded-3"
+          style="min-width: 20rem; background-color: rgb(245 245 247)"
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
+            class="card-img-top"
+            alt=""
+          />
+          <div class="card-body">
+            <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
+            <h5 class="card-title">
+              تطبيق قاعدة بيانات SQL باستخدام لغة Python
+            </h5>
+            <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
+              <p>برنامج - أسبوع</p>
+              <p>كبار</p>
+            </div>
+            <ul class="text-success m-0 px-3">
+              <li>ينتهي بعد 8 ايام</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="card-ends p-2 border-0 rounded-3"
+          style="min-width: 20rem; background-color: rgb(245 245 247)"
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
+            class="card-img-top"
+            alt=""
+          />
+          <div class="card-body">
+            <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
+            <h5 class="card-title">
+              تطبيق قاعدة بيانات SQL باستخدام لغة Python
+            </h5>
+            <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
+              <p>برنامج - أسبوع</p>
+              <p>كبار</p>
+            </div>
+            <ul class="text-success m-0 px-3">
+              <li>ينتهي بعد 8 ايام</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="card-ends p-2 border-0 rounded-3"
+          style="min-width: 20rem; background-color: rgb(245 245 247)"
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
+            class="card-img-top"
+            alt=""
+          />
+          <div class="card-body">
+            <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
+            <h5 class="card-title">
+              تطبيق قاعدة بيانات SQL باستخدام لغة Python
+            </h5>
+            <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
+              <p>برنامج - أسبوع</p>
+              <p>كبار</p>
+            </div>
+            <ul class="text-success m-0 px-3">
+              <li>ينتهي بعد 8 ايام</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="card-ends p-2 border-0 rounded-3"
+          style="min-width: 20rem; background-color: rgb(245 245 247)"
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
+            class="card-img-top"
+            alt=""
+          />
+          <div class="card-body">
+            <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
+            <h5 class="card-title">
+              تطبيق قاعدة بيانات SQL باستخدام لغة Python
+            </h5>
+            <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
+              <p>برنامج - أسبوع</p>
+              <p>كبار</p>
+            </div>
+            <ul class="text-success m-0 px-3">
+              <li>ينتهي بعد 8 ايام</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="card-ends p-2 border-0 rounded-3"
+          style="min-width: 20rem; background-color: rgb(245 245 247)"
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
+            class="card-img-top"
+            alt=""
+          />
+          <div class="card-body">
+            <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
+            <h5 class="card-title">
+              تطبيق قاعدة بيانات SQL باستخدام لغة Python
+            </h5>
+            <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
+              <p>برنامج - أسبوع</p>
+              <p>كبار</p>
+            </div>
+            <ul class="text-success m-0 px-3">
+              <li>ينتهي بعد 8 ايام</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="card-ends p-2 border-0 rounded-3"
+          style="min-width: 20rem; background-color: rgb(245 245 247)"
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
+            class="card-img-top"
+            alt="end-courses-img"
+          />
+          <div class="card-body">
+            <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
+            <h5 class="card-title">
+              تطبيق قاعدة بيانات SQL باستخدام لغة Python
+            </h5>
+            <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
+              <p>برنامج - أسبوع</p>
+              <p>كبار</p>
+            </div>
+            <ul class="text-success m-0 px-3">
+              <li>ينتهي بعد 8 ايام</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- == End Soon == -->
+
+    <!-- Satr Courses -->
+
+    <section style="background-color: rgb(249 250 251)" class="cards-section">
+      <div class="cards-content container-xxl d-flex flex-column gap-3 my-4">
+        <div class="title-card d-flex justify-content-between">
+          <div class="tilte">
+            <h4 class="mx-4">أحدث دورات منصة سطر</h4>
+          </div>
+          <button
+            style="background: linear-gradient(to right, #f1627a, #d54bae)"
+            class="rounded-3 border-0 text-white d-none d-md-block"
+          >
+            <span> ابدأ بالتعلم </span>
+            <span
+              ><svg
+                style="fill: white"
+                class="group-hover:mr-4 left-[15px] absolute"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                width="18"
+                viewBox="0 0 384 512"
+              >
+                <path
+                  d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div
+          style="overflow-x: auto"
+          class="cards-satr d-flex justify-content-between align-items-center gap-4"
+        >
+          <div
+            class="card p-3"
+            style="width: 25rem; min-width: 25rem; cursor: pointer"
+          >
+            <img
+              style="height: 12em"
+              src="https://satr.codes/satr-white-placeholder-logo-dark.e15b498723047344d3a1363a54c646d9.svg"
+              class="border border-1 rounded-3 position-relative object-fit-contain"
+              alt="fultter-103-img"
+            />
+            <span
+              style="background-color: rgb(216 237 247); color: rgb(77 192 218)"
+              class="position-absolute p-1 rounded-3 m-2 fw-light"
+              >احدث الدورات</span
+            >
+            <div class="card-body">
+              <h5 class="card-title">Flutter 103</h5>
+              <div style="font-size: 0.8em" class="d-flex gap-4 mt-3">
+                <span>متوسط</span>
+                <span style="color: rgb(255 198 83)">17976 مشترك </span>
+                <ul class="m-0 p-0 text-success">
+                  <li>00:56:32</li>
+                </ul>
+              </div>
+
+              <p class="card-text fw-normal mt-3">
+                تهدف الدورة للتعرف على كيفية بناء واجهات تفاعلية باستخدام أدوات
+                Flutter المتنوعة،...
               </p>
             </div>
+          </div>
 
-            <div
-              style="background-color: #ffffffb3"
-              class="card-image bg-white rounded-3 d-flex justify-content-center flex-column"
+          <div
+            class="card p-3"
+            style="width: 25rem; min-width: 25rem; cursor: pointer"
+          >
+            <img
+              style="height: 12em"
+              src="https://assets.safcsp.cloud/d46d6d81-8ab9-44fd-884d-b9b6ee3e336a/asset/f487b240-d933-4c6c-8f12-e6787de6271d.png"
+              class="border border-1 rounded-3 position-relative object-fit-contain"
+              alt="network-101-img"
+            />
+            <span
+              style="background-color: rgb(216 237 247); color: rgb(77 192 218)"
+              class="position-absolute p-1 rounded-3 m-2 fw-light"
+              >احدث الدورات</span
             >
-              <div class="card-images d-flex justify-content-between">
-                <div
-                  style="transform: rotate(3deg)"
-                  class="image-1 d-flex justify-content-center bg-white shadow px-3 rounded-3"
-                >
-                  <img
-                    class="object-fit-cover w-100 h-100"
-                    src="https://tuwaiq.edu.sa/img/6.svg"
-                    alt=""
-                  />
-                </div>
-                <div
-                  class="image-2 d-flex justify-content-center bg-white shadow px-3 rounded-3"
-                >
-                  <img
-                    class="object-fit-cover w-100 h-100"
-                    src="https://tuwaiq.edu.sa/img/11.svg"
-                    alt=""
-                  />
-                </div>
-                <div
-                  style="transform: rotate(-3deg)"
-                  class="image-3 d-flex justify-content-center bg-white shadow px-3 rounded-3"
-                >
-                  <img
-                    class="object-fit-cover w-100 h-100"
-                    src="https://tuwaiq.edu.sa/img/1.svg"
-                    alt=""
-                  />
-                </div>
+            <div class="card-body">
+              <h5 class="card-title">أمن الشبكات 101</h5>
+              <div style="font-size: 0.8em" class="d-flex gap-4 mt-3">
+                <span>مبتدئ</span>
+
+                <span style="color: rgb(255 198 83)">4560 مشترك </span>
+                <ul class="m-0 p-0 text-success">
+                  <li>01:19:51</li>
+                </ul>
               </div>
-              <div class="company-logo company-logo text-center">
-                <img
-                  src="https://tuwaiq.edu.sa/img/Holberton.png"
-                  alt=""
-                  class="z1"
-                  width="150"
-                />
+
+              <p class="card-text fw-normal mt-3">
+                تهدف دورة أمن الشبكات إلى تزويد المتدربين بالمعرفة والمهارات
+                اللازمة لحماية...
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="card p-3"
+            style="width: 25rem; min-width: 25rem; cursor: pointer"
+          >
+            <img
+              style="height: 12em"
+              src="https://assets.safcsp.cloud/d46d6d81-8ab9-44fd-884d-b9b6ee3e336a/asset/2896f92b-c2fd-4fd7-8e3a-abd336352237.png"
+              class="border border-1 rounded-3 position-relative object-fit-contain"
+              alt="cyber​-​security-img"
+            />
+            <span
+              style="background-color: #6635d733; color: rgb(102 53 215)"
+              class="position-absolute p-1 rounded-3 m-2 fw-light"
+              >احدث المسارات</span
+            >
+            <div class="card-body">
+              <h5 class="card-title">مسار أساسيات الأمن السيبراني</h5>
+              <div style="font-size: 0.8em" class="d-flex gap-4 mt-3">
+                <span>متوسط</span>
+                <span style="color: rgb(255 198 83)">2776 مشترك </span>
+                <ul class="m-0 p-0 text-success">
+                  <li>04:52:21</li>
+                </ul>
               </div>
+
+              <p class="card-text fw-normal mt-3">
+                يهدف المسار إلى تقديم رحلة متكاملة تبدأ بمفاهيم الأمن السيبراني
+                الأساسية، ثم إتقان...
+              </p>
             </div>
           </div>
         </div>
-      </section>
-      <!-- == Hero-section == -->
 
-      <!-- Cards -->
-      <section
-        style="overflow-x: auto"
-        class="cards-section container-xxl d-flex justify-content-between gap-3"
-      >
-        <div
-          style="background-color: rgb(190 217 255); min-width: 75%"
-          class="bootcamp-card p-4 rounded-4 overflow-hidden"
-        >
-          <div class="card-title-button d-flex justify-content-between">
-            <h4>المعسكرات</h4>
-            <button class="bg-white rounded-circle border border-0">
-              <span
-                ><svg
-                  class="group-hover:mr-4 left-[15px] absolute"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  width="18"
-                  viewBox="0 0 384 512"
-                >
-                  <path
-                    d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </div>
-          <p class="fw-light w-75">
-            معسكرات منتهية بالتوظيف للمتميزين، مبنيّة على احتياجات سوق العمل،
-            تقام لمدة 1-9 أشهر بشهادات احترافية في العديد من المجالات التقنية.
-          </p>
-
-          <img
-            width="350"
-            src="https://tuwaiq.edu.sa/img/ART/Asset%201.png"
-            alt=""
-          />
-        </div>
-        <div
-          style="background-color: rgb(255 231 239); min-width: 75%"
-          class="bootcamp-card p-4 rounded-4 position-relative overflow-hidden w-lg-100"
-        >
-          <div class="card-title-button d-flex justify-content-between">
-            <h4>البرامج</h4>
-            <button class="bg-white rounded-circle border border-0">
-              <span
-                ><svg
-                  class="group-hover:mr-4 left-[15px] absolute"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  width="18"
-                  viewBox="0 0 384 512"
-                >
-                  <path
-                    d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </div>
-          <p class="fw-light w-75">
-            برامج احترافية لمدة 1-3 أسابيع، تستهدف تطوير قدراتك التقنية؛
-            بمنهجيّة تعلُّم نوعية، وبيئة تنافسية قائمة على التطبيقات العملية.
-          </p>
-
-          <img
-            class="position-absolute bottom-0 end-0"
-            width="400"
-            src="https://tuwaiq.edu.sa/img/art_for_programs.svg"
-            alt=""
-          />
-        </div>
-        <div
-          style="background-color: rgb(211 255 213); min-width: 75%"
-          class="bootcamp-card p-4 rounded-4 position-relative overflow-hidden w-100"
-        >
-          <div class="card-title-button d-flex justify-content-between">
-            <h4>اللقاءات</h4>
-            <button class="bg-white rounded-circle border border-0">
-              <span
-                ><svg
-                  class="group-hover:mr-4 left-[15px] absolute"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  width="18"
-                  viewBox="0 0 384 512"
-                >
-                  <path
-                    d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </div>
-          <p class="fw-light w-75">
-            لقاءات معرفيّة إثرائية، تقام بالتعاون مع عدة جهات رائدة ومتقدمة؛
-            لمناقشة مختلف مواضيع التقنيات الحديثة، والتواصل، والأعمال.
-          </p>
-
-          <img
-            class="position-absolute"
-            width="450"
-            src="https://tuwaiq.edu.sa/img/ART/Asset%203.svg"
-            alt=""
-          />
-        </div>
-      </section>
-
-      <!-- == Cards == -->
-
-      <!-- End Soon -->
-      <section class="end-section container-xxl d-flex flex-column gap-3 my-4">
-        <div
-          class="title-end d-flex justify-content-between align-items-center"
-        >
-          <div class="title-section d-flex align-items-center">
-            <h4 class="mx-4">ينتهي التسجيل قريبًا</h4>
-            <a
-              class="link-offset-2 link-underline link-underline-opacity-0"
-              href="#"
-            >
-              عرض المزيد ></a
-            >
-          </div>
-          <div class="end-cards-arrows d-none d-md-block">
-            <span class="left">
-              <svg
-                style="width: 30px; background-color: rgb(238 238 238)"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="rounded-circle"
-                :class="{'!text-[#93726670]': theme === 'founding_day'}"
+        <div class="d-flex justify-content-center">
+          <button
+            style="background: linear-gradient(to right, #f1627a, #d54bae)"
+            class="rounded-3 border-0 text-white d-block d-md-none"
+          >
+            <span> ابدأ بالتعلم </span>
+            <span
+              ><svg
+                style="fill: white"
+                class="group-hover:mr-4 left-[15px] absolute"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                width="18"
+                viewBox="0 0 384 512"
               >
                 <path
-                  fill-rule="evenodd"
-                  d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
-                  clip-rule="evenodd"
+                  d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
                 ></path>
               </svg>
             </span>
-
-            <span>
-              <svg
-                style="width: 30px; background-color: rgb(238 238 238)"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="rounded-circle"
-                :class="{'!text-[#93726670]': theme === 'founding_day'}"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </span>
-          </div>
+          </button>
         </div>
-        <div
-          style="overflow-x: auto"
-          class="end-cards-section d-flex justify-content-between gap-3"
-        >
-          <div
-            class="card p-2 border-0 rounded-3"
-            style="min-width: 20rem; background-color: rgb(245 245 247)"
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
-              <h6 class="card-title">
-                تطبيق قاعدة بيانات SQL باستخدام لغة Python
-              </h6>
-              <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
-                <p>برنامج - أسبوع</p>
-                <p>كبار</p>
-              </div>
-              <ul class="text-success m-0 px-3">
-                <li>ينتهي بعد 8 ايام</li>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            class="card p-2 border-0 rounded-3"
-            style="min-width: 20rem; background-color: rgb(245 245 247)"
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
-              <h5 class="card-title">
-                تطبيق قاعدة بيانات SQL باستخدام لغة Python
-              </h5>
-              <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
-                <p>برنامج - أسبوع</p>
-                <p>كبار</p>
-              </div>
-              <ul class="text-success m-0 px-3">
-                <li>ينتهي بعد 8 ايام</li>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            class="card p-2 border-0 rounded-3"
-            style="min-width: 20rem; background-color: rgb(245 245 247)"
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
-              <h5 class="card-title">
-                تطبيق قاعدة بيانات SQL باستخدام لغة Python
-              </h5>
-              <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
-                <p>برنامج - أسبوع</p>
-                <p>كبار</p>
-              </div>
-              <ul class="text-success m-0 px-3">
-                <li>ينتهي بعد 8 ايام</li>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            class="card p-2 border-0 rounded-3"
-            style="min-width: 20rem; background-color: rgb(245 245 247)"
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
-              <h5 class="card-title">
-                تطبيق قاعدة بيانات SQL باستخدام لغة Python
-              </h5>
-              <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
-                <p>برنامج - أسبوع</p>
-                <p>كبار</p>
-              </div>
-              <ul class="text-success m-0 px-3">
-                <li>ينتهي بعد 8 ايام</li>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            class="card p-2 border-0 rounded-3"
-            style="min-width: 20rem; background-color: rgb(245 245 247)"
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
-              <h5 class="card-title">
-                تطبيق قاعدة بيانات SQL باستخدام لغة Python
-              </h5>
-              <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
-                <p>برنامج - أسبوع</p>
-                <p>كبار</p>
-              </div>
-              <ul class="text-success m-0 px-3">
-                <li>ينتهي بعد 8 ايام</li>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            class="card p-2 border-0 rounded-3"
-            style="min-width: 20rem; background-color: rgb(245 245 247)"
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
-              <h5 class="card-title">
-                تطبيق قاعدة بيانات SQL باستخدام لغة Python
-              </h5>
-              <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
-                <p>برنامج - أسبوع</p>
-                <p>كبار</p>
-              </div>
-              <ul class="text-success m-0 px-3">
-                <li>ينتهي بعد 8 ايام</li>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            class="card p-2 border-0 rounded-3"
-            style="min-width: 20rem; background-color: rgb(245 245 247)"
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
-              <h5 class="card-title">
-                تطبيق قاعدة بيانات SQL باستخدام لغة Python
-              </h5>
-              <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
-                <p>برنامج - أسبوع</p>
-                <p>كبار</p>
-              </div>
-              <ul class="text-success m-0 px-3">
-                <li>ينتهي بعد 8 ايام</li>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            class="card p-2 border-0 rounded-3"
-            style="min-width: 20rem; background-color: rgb(245 245 247)"
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
-              <h5 class="card-title">
-                تطبيق قاعدة بيانات SQL باستخدام لغة Python
-              </h5>
-              <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
-                <p>برنامج - أسبوع</p>
-                <p>كبار</p>
-              </div>
-              <ul class="text-success m-0 px-3">
-                <li>ينتهي بعد 8 ايام</li>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            class="card p-2 border-0 rounded-3"
-            style="min-width: 20rem; background-color: rgb(245 245 247)"
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
-              <h5 class="card-title">
-                تطبيق قاعدة بيانات SQL باستخدام لغة Python
-              </h5>
-              <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
-                <p>برنامج - أسبوع</p>
-                <p>كبار</p>
-              </div>
-              <ul class="text-success m-0 px-3">
-                <li>ينتهي بعد 8 ايام</li>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            class="card p-2 border-0 rounded-3"
-            style="min-width: 20rem; background-color: rgb(245 245 247)"
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/initiatives_admin/images/pxhazeai.5tg.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="fw-light p-0">علم البيانات والذكاء الاصطناعي</p>
-              <h5 class="card-title">
-                تطبيق قاعدة بيانات SQL باستخدام لغة Python
-              </h5>
-              <div style="color: rgb(197 107 55)" class="text d-flex gap-3">
-                <p>برنامج - أسبوع</p>
-                <p>كبار</p>
-              </div>
-              <ul class="text-success m-0 px-3">
-                <li>ينتهي بعد 8 ايام</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- == End Soon == -->
-
-      <!-- Satr Courses -->
-
-      <section style="background-color: rgb(249 250 251)" class="cards-section">
-        <div class="cards-content container-xxl d-flex flex-column gap-3">
-          <div class="title-card d-flex justify-content-between">
-            <div class="tilte">
-              <h4 class="mx-4">أحدث دورات منصة سطر</h4>
-            </div>
-            <button
-              style="background-color: #f1627a"
-              class="rounded-3 border-0 text-white d-none d-md-block"
-            >
-              <span> ابدأ بالتعلم </span>
-              <span
-                ><svg
-                  style="fill: white"
-                  class="group-hover:mr-4 left-[15px] absolute"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  width="18"
-                  viewBox="0 0 384 512"
-                >
-                  <path
-                    d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </div>
-          <div
-            style="overflow-x: auto"
-            class="cards-satr d-flex justify-content-between align-items-center gap-4"
-          >
-            <div
-              class="card p-3"
-              style="width: 25rem; min-width: 25rem; cursor: pointer"
-            >
-              <img
-                src="https://satr.codes/satr-white-placeholder-logo-dark.e15b498723047344d3a1363a54c646d9.svg"
-                class="border border-1 rounded-3 position-relative"
-                alt="..."
-              />
-              <span
-                style="
-                  background-color: rgb(216 237 247);
-                  color: rgb(77 192 218);
-                "
-                class="position-absolute p-1 rounded-3 m-2 fw-light"
-                >احدث الدورات</span
-              >
-              <div class="card-body">
-                <h5 class="card-title">Flutter 103</h5>
-                <div style="font-size: 0.8em" class="d-flex gap-4 mt-3">
-                  <span>متوسط</span>
-                  <span style="color: rgb(255 198 83)">17976 مشترك </span>
-                  <ul class="m-0 p-0 text-success">
-                    <li>00:56:32</li>
-                  </ul>
-                </div>
-
-                <p class="card-text fw-normal mt-3">
-                  تهدف الدورة للتعرف على كيفية بناء واجهات تفاعلية باستخدام
-                  أدوات Flutter المتنوعة،...
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="card p-3"
-              style="width: 25rem; min-width: 25rem; cursor: pointer"
-            >
-              <img
-                src="https://assets.safcsp.cloud/d46d6d81-8ab9-44fd-884d-b9b6ee3e336a/asset/f487b240-d933-4c6c-8f12-e6787de6271d.png"
-                class="border border-1 rounded-3 position-relative"
-                alt="..."
-              />
-              <span
-                style="
-                  background-color: rgb(216 237 247);
-                  color: rgb(77 192 218);
-                "
-                class="position-absolute p-1 rounded-3 m-2 fw-light"
-                >احدث الدورات</span
-              >
-              <div class="card-body">
-                <h5 class="card-title">أمن الشبكات 101</h5>
-                <div style="font-size: 0.8em" class="d-flex gap-4 mt-3">
-                  <span>مبتدئ</span>
-
-                  <span style="color: rgb(255 198 83)">4560 مشترك </span>
-                  <ul class="m-0 p-0 text-success">
-                    <li>01:19:51</li>
-                  </ul>
-                </div>
-
-                <p class="card-text fw-normal mt-3">
-                  تهدف دورة أمن الشبكات إلى تزويد المتدربين بالمعرفة والمهارات
-                  اللازمة لحماية...
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="card p-3"
-              style="width: 25rem; min-width: 25rem; cursor: pointer"
-            >
-              <img
-                src="https://assets.safcsp.cloud/d46d6d81-8ab9-44fd-884d-b9b6ee3e336a/asset/2896f92b-c2fd-4fd7-8e3a-abd336352237.png"
-                class="border border-1 rounded-3 position-relative"
-                alt="..."
-              />
-              <span
-                style="background-color: #6635d733; color: rgb(102 53 215)"
-                class="position-absolute p-1 rounded-3 m-2 fw-light"
-                >احدث المسارات</span
-              >
-              <div class="card-body">
-                <h5 class="card-title">مسار أساسيات الأمن السيبراني</h5>
-                <div style="font-size: 0.8em" class="d-flex gap-4 mt-3">
-                  <span>متوسط</span>
-                  <span style="color: rgb(255 198 83)">2776 مشترك </span>
-                  <ul class="m-0 p-0 text-success">
-                    <li>04:52:21</li>
-                  </ul>
-                </div>
-
-                <p class="card-text fw-normal mt-3">
-                  يهدف المسار إلى تقديم رحلة متكاملة تبدأ بمفاهيم الأمن
-                  السيبراني الأساسية، ثم إتقان...
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="d-flex justify-content-center">
-            <button
-              style="background-color: #f1627a"
-              class="rounded-3 border-0 text-white d-block d-md-none"
-            >
-              <span> ابدأ بالتعلم </span>
-              <span
-                ><svg
-                  style="fill: white"
-                  class="group-hover:mr-4 left-[15px] absolute"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  width="18"
-                  viewBox="0 0 384 512"
-                >
-                  <path
-                    d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </div>
-        </div>
-      </section>
-      <!-- == Satr Courses == -->
-
-      <!-- Statistics -->
-
-      <section style="background-color: rgb(245 245 247)" class="cards-section">
-        <div class="cards-content container-xxl d-flex flex-column gap-3">
-          <div class="title-card d-flex flex-column">
-            <div class="tilte pt-4">
-              <h4 class="mx-4">أرقام الاكاديمية</h4>
-            </div>
-            <div class="stat-content d-flex flex-column flex-lg-row gap-3 p-5">
-              <div
-                style="background-color: white; width: 22.6875em"
-                class="partners position-relative rounded-4"
-              >
-                <img
-                  src="https://tuwaiq.edu.sa/img/numbers_hero.png"
-                  alt=""
-                  class="object-fit-cover w-100 position-relative"
-                />
-                <div class="text-partner position-absolute top-0 p-5">
-                  <h6 class="fw-normal">شراكة عالمية</h6>
-                  <h5 class="fw-bold">+60</h5>
-                  <p class="p-0 m-0 fw-light">شركة</p>
-                </div>
-              </div>
-
-              <div class="stat-rows d-flex flex-column w-75 gap-3">
-                <div
-                  class="stat-row-1 d-flex gap-3 h-50 flex-column flex-lg-row"
-                >
-                  <div class="cont-bootcamps w-50">
-                    <div
-                      style="background-color: white"
-                      class="cont-bootcamps-card d-flex flex-column position-relative rounded-4 h-100 overflow-hidden"
-                    >
-                      <div class="cont-bootcamps-text m-5 mb-0">
-                        <h6 class="fw-normal">عدد المعسكرات والبرامج</h6>
-                        <h5 class="fw-bold">1,836</h5>
-                        <p class="p-0 m-0 fw-light">معسكر وبرنامج</p>
-                      </div>
-                      <div
-                        class="cont-bootcamps-img w-100 text-start position-absolute bottom-0"
-                      >
-                        <img
-                          src="https://tuwaiq.edu.sa/img/numberOfBootcampsAndPrograms.png"
-                          alt=""
-                          class="object-fit-cover images-phone"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="cont-grad w-75">
-                    <div
-                      style="background-color: white"
-                      class="cont-grad-card position-relative rounded-4 h-100 overflow-hidden"
-                    >
-                      <div class="cont-grad-text m-5 mb-0">
-                        <h6 class="fw-normal">عــدد الخريجين</h6>
-                        <h5 class="fw-bold">1,836</h5>
-                        <p class="p-0 m-0 fw-light">متدرب حضوري</p>
-                      </div>
-                      <div
-                        class="cont-grad-img w-100 text-start position-absolute bottom-0"
-                      >
-                        <img
-                          src="https://tuwaiq.edu.sa/img/numberOfInPersonTrainees.png"
-                          alt=""
-                          class="object-fit-cover images-phone"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="stat-row-2 h-50">
-                  <div class="d-flex flex-column flex-lg-row gap-3 h-100">
-                    <div class="satr-stat w-75 h-100">
-                      <div
-                        style="background-color: white"
-                        class="satr-stat-card position-relative rounded-4 h-100 overflow-hidden"
-                      >
-                        <div class="satr-stat-text m-5 mb-0">
-                          <h6 class="fw-normal">منــصــة ســـطــر</h6>
-                          <h5 class="fw-bold">888,565</h5>
-                          <p class="p-0 m-0 fw-light">متدرب</p>
-                        </div>
-                        <div
-                          class="w-100 text-start position-absolute bottom-0"
-                        >
-                          <img
-                            src="https://tuwaiq.edu.sa/img/SatrPlatform.png"
-                            alt=""
-                            class="object-fit-cover images-phone"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="emp-rate w-50">
-                      <div
-                        style="background-color: white"
-                        class="emp-rate-card position-relative rounded-4 h-100 overflow-hidden"
-                      >
-                        <div class="emp-rate-text m-5 mb-0">
-                          <h6 class="fw-normal">نسبة توظيف خريجي المعسكرات</h6>
-                          <h5 class="fw-bold">80%</h5>
-                          <p class="p-0 m-0 fw-light">موظف</p>
-                        </div>
-                        <div
-                          class="emp-rate-img w-100 text-start position-absolute bottom-0"
-                        >
-                          <img
-                            src="https://tuwaiq.edu.sa/img/numberOfHiredGraduted.png"
-                            alt=""
-                            class="object-fit-cover images-phone"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- == Statistics == -->
-
-      <!-- News -->
-
-      <section class="end-section container-xxl d-flex flex-column gap-3 my-4">
-        <div
-          class="title-end d-flex justify-content-between align-items-center"
-        >
-          <div class="title-section d-flex align-items-center">
-            <h4 class="mx-4">اخر اخبار الأكاديمية</h4>
-          </div>
-          <div class="end-cards-arrows d-none d-md-block">
-            <span class="left">
-              <svg
-                style="width: 30px; background-color: rgb(238 238 238)"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="rounded-circle"
-                :class="{'!text-[#93726670]': theme === 'founding_day'}"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </span>
-
-            <span>
-              <svg
-                style="width: 30px; background-color: rgb(238 238 238)"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="rounded-circle"
-                :class="{'!text-[#93726670]': theme === 'founding_day'}"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          style="overflow-x: auto"
-          class="end-cards-section d-flex justify-content-between gap-3"
-        >
-          <div
-            class="card border-0 rounded-5 position-relative overflow-hidden"
-            style="
-              min-width: 21rem;
-              height: 30rem;
-              background-color: rgb(245 245 247);
-            "
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/landing/news/hg1ea1q1.4at.jpg"
-              class="object-fit-cover w-100 h-100"
-              alt="..."
-            />
-
-            <div
-              style="background-color: rgba(0, 0, 0, 0.3)"
-              class="position-absolute top-50 start-50 translate-middle text-white w-100 h-100"
-            >
-              <div class="card-text position-absolute bottom-0 p-4">
-                <h6 class="card-title">
-                  إطلاق "أكاديمية الكراج" بالشراكة مع أكاديمية طويق لدعم مشاريع
-                  مُسرّعة وحاضنة الكراج
-                </h6>
-                <hr />
-                <div
-                  class="text d-flex justify-content-between align-items-center"
-                >
-                  <p class="fw-light m-0">05/05/2025</p>
-                  <button class="bg-white rounded-5 border-0 p-1">
-                    <span class="d-none"> المزيد </span>
-                    <span>
-                      <svg
-                        class="group-hover:mr-4 left-[15px] absolute"
-                        :class="{'text-white': theme === 'founding_day'}"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="24"
-                        width="18"
-                        viewBox="0 0 384 512"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
-                        ></path>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="card border-0 rounded-5 position-relative overflow-hidden"
-            style="
-              min-width: 21rem;
-              height: 30rem;
-              background-color: rgb(245 245 247);
-            "
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/landing/news/ce2t3lcl.su1.png"
-              class="object-fit-cover w-100 h-100"
-              alt="..."
-            />
-
-            <div
-              style="background-color: rgba(0, 0, 0, 0.3)"
-              class="position-absolute top-50 start-50 translate-middle text-white w-100 h-100"
-            >
-              <div class="card-text position-absolute bottom-0 p-4">
-                <h6 class="card-title">
-                  طلاب أكاديمية طويق ومدارس مسك يحصدون 4 ميداليات ذهبية وبرونزية
-                  في مسابقة معرض جنيف الدولي للاختراعات
-                </h6>
-                <hr />
-                <div
-                  class="text d-flex justify-content-between align-items-center"
-                >
-                  <p class="fw-light m-0">13/04/2025</p>
-                  <button class="bg-white rounded-5 border-0 p-1">
-                    <span class="d-none"> المزيد </span>
-                    <span>
-                      <svg
-                        class="group-hover:mr-4 left-[15px] absolute"
-                        :class="{'text-white': theme === 'founding_day'}"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="24"
-                        width="18"
-                        viewBox="0 0 384 512"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
-                        ></path>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="card border-0 rounded-5 position-relative overflow-hidden"
-            style="
-              min-width: 21rem;
-              height: 30rem;
-              background-color: rgb(245 245 247);
-            "
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/landing/news/15mnxx1h.n5k.png"
-              class="object-fit-cover w-100 h-100"
-              alt="..."
-            />
-
-            <div
-              style="background-color: rgba(0, 0, 0, 0.3)"
-              class="position-absolute top-50 start-50 translate-middle text-white w-100 h-100"
-            >
-              <div class="card-text position-absolute bottom-0 p-4">
-                <h6 class="card-title">
-                  أكاديمية طويق تحتفي بفوز طالباتها في تحدي آبل العالمي
-                </h6>
-                <hr />
-                <div
-                  class="text d-flex justify-content-between align-items-center"
-                >
-                  <p class="fw-light m-0">10/04/2025</p>
-                  <button class="bg-white rounded-5 border-0 p-1">
-                    <span class="d-none"> المزيد </span>
-                    <span>
-                      <svg
-                        class="group-hover:mr-4 left-[15px] absolute"
-                        :class="{'text-white': theme === 'founding_day'}"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="24"
-                        width="18"
-                        viewBox="0 0 384 512"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
-                        ></path>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="card border-0 rounded-5 position-relative overflow-hidden"
-            style="
-              min-width: 21rem;
-              height: 30rem;
-              background-color: rgb(245 245 247);
-            "
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/landing/news/wdpsjse5.zqv.jpeg"
-              class="object-fit-cover w-100 h-100"
-              alt="..."
-            />
-
-            <div
-              style="background-color: rgba(0, 0, 0, 0.3)"
-              class="position-absolute top-50 start-50 translate-middle text-white w-100 h-100"
-            >
-              <div class="card-text position-absolute bottom-0 p-4">
-                <h6 class="card-title">
-                  أكاديمية طويق تطلق برنامج قادة تقنيات المستقبل برعاية البرنامج
-                  الوطني لتنمية تقنية المعلومات
-                </h6>
-                <hr />
-                <div
-                  class="text d-flex justify-content-between align-items-center"
-                >
-                  <p class="fw-light m-0">05/05/2025</p>
-                  <button class="bg-white rounded-5 border-0 p-1">
-                    <span class="d-none"> المزيد </span>
-                    <span>
-                      <svg
-                        class="group-hover:mr-4 left-[15px] absolute"
-                        :class="{'text-white': theme === 'founding_day'}"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="24"
-                        width="18"
-                        viewBox="0 0 384 512"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
-                        ></path>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="card border-0 rounded-5 position-relative overflow-hidden"
-            style="
-              min-width: 21rem;
-              height: 30rem;
-              background-color: rgb(245 245 247);
-            "
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/landing/news/yyjmdv1u.4sj.jpg"
-              class="object-fit-cover w-100 h-100"
-              alt="..."
-            />
-
-            <div
-              style="background-color: rgba(0, 0, 0, 0.3)"
-              class="position-absolute top-50 start-50 translate-middle text-white w-100 h-100"
-            >
-              <div class="card-text position-absolute bottom-0 p-4">
-                <h6 class="card-title">
-                  اختتام "برنامج طويق للتوظيف" بأكثر من 8,000 مقابلة في 120 جهة
-                </h6>
-                <hr />
-                <div
-                  class="text d-flex justify-content-between align-items-center"
-                >
-                  <p class="fw-light m-0">27/02/2025</p>
-                  <button class="bg-white rounded-5 border-0 p-1">
-                    <span class="d-none"> المزيد </span>
-                    <span>
-                      <svg
-                        class="group-hover:mr-4 left-[15px] absolute"
-                        :class="{'text-white': theme === 'founding_day'}"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="24"
-                        width="18"
-                        viewBox="0 0 384 512"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
-                        ></path>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="card border-0 rounded-5 position-relative overflow-hidden"
-            style="
-              min-width: 21rem;
-              height: 30rem;
-              background-color: rgb(245 245 247);
-            "
-          >
-            <img
-              src="https://cdn.tuwaiq.edu.sa/landing/news/bpojv2if.wtw.jpg"
-              class="object-fit-cover w-100 h-100"
-              alt="..."
-            />
-
-            <div
-              style="background-color: rgba(0, 0, 0, 0.3)"
-              class="position-absolute top-50 start-50 translate-middle text-white w-100 h-100"
-            >
-              <div class="card-text position-absolute bottom-0 p-4">
-                <h6 class="card-title">
-                  أكاديمية طويق تفوز بجائزة "الازدهار الرقمي" من منظمة التعاون
-                  الرقمي الدولية
-                </h6>
-                <hr />
-                <div
-                  class="text d-flex justify-content-between align-items-center"
-                >
-                  <p class="fw-light m-0">20/02/2025</p>
-                  <button class="bg-white rounded-5 border-0 p-1">
-                    <span class="d-none"> المزيد </span>
-                    <span>
-                      <svg
-                        class="group-hover:mr-4 left-[15px] absolute"
-                        :class="{'text-white': theme === 'founding_day'}"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="24"
-                        width="18"
-                        viewBox="0 0 384 512"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
-                        ></path>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- == News == -->
-
-      <!--NewLetter  -->
-
-      <section
-        style="background-color: rgb(180 235 231)"
-        class="newletter-section"
-      >
-        <div
-          class="newletter-section-content container-xxl d-flex rounded-4 flex-column p-4 my-5 overflow-hidden"
-        >
-          <div class="title-section">
-            <h2 style="color: rgb(100 56 221)" class="">
-              أشترك في النشرة البريدية
-            </h2>
-          </div>
-
-          <div
-            class="newletter-content d-flex justify-content-center justify-content-md-between align-items-center"
-          >
-            <div class="form d-block d-md-flex flex-column">
-              <form class="d-flex flex-column gap-3">
-                <div class="d-flex flex-column flex-md-row gap-3">
-                  <input
-                    style="height: 3.5em"
-                    class="form-control"
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="الاسم الاول"
-                  />
-                  <input
-                    style="height: 3.5em"
-                    class="form-control"
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="الاسم الاخير"
-                  />
-                </div>
-                <div class="d-flex flex-column flex-md-row gap-3">
-                  <input
-                    style="height: 3.5em"
-                    class="form-control"
-                    type="email"
-                    name=""
-                    id=""
-                    placeholder="name@email.com"
-                  />
-                  <button
-                    style="background-color: rgb(79 41 183)"
-                    class="btn btn-light text-white w-50"
-                  >
-                    أشترك الان
-                    <span class="text-white">
-                      <svg
-                        class="w-[2.3rem] fill-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512"
-                        style="width: 15px; fill: white"
-                      >
-                        <path
-                          class="fa-secondary"
-                          opacity="1"
-                          d="M0 288c0 .7 0 1.3 .1 2c.8 12.2 8.4 22.9 19.6 27.6l112 46.7L160 376l0-8c0-4.2 1.7-8.3 4.7-11.3l13-13c59.6-59.6 119.2-119.2 178.8-178.7c.1-.1 .2-.2 .2-.3c3-3 6.8-4.5 10.7-4.7s7.9 1.1 11 3.9c3.7 3.3 5.6 7.7 5.6 12.1c0 3.4-1.1 6.8-3.3 9.7L224 389.4l0 13.2c20 8.3 40 16.7 60 25c39.9 16.6 79.8 33.2 119.7 49.9c9.1 3.8 19.4 3.2 28-1.6s14.5-13.3 16-23l64-416c1.9-12.1-3.4-24.3-13.5-31.2C492.7 1.9 486.4 0 480 0c-5.5 0-10.9 1.4-15.9 4.2l-448 256C6.1 265.9 0 276.6 0 288z"
-                        ></path>
-                        <path
-                          class="fa-primary"
-                          opacity="0.4"
-                          d="M380.7 185.8c5.1-6.7 4.2-16.2-2.1-21.8s-15.9-5.3-21.9 .7l-179 179-13 13c-3 3-4.7 7.1-4.7 11.3l0 8 0 56 0 48c0 13.2 8.1 25 20.3 29.8s26.2 1.6 35.2-8.1L284 427.7l-60-25 0-13.2L380.7 185.8z"
-                        ></path>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
-              </form>
-            </div>
-            <div
-              style="margin-bottom: -25px"
-              class="newletter-image d-none d-md-block"
-            >
-              <img
-                src="https://tuwaiq.edu.sa/img/ART/Asset%209.svg"
-                alt=""
-                width="288"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- == NewLetter ==  -->
-
-      <!-- == Content == -->
+      </div>
     </section>
+    <!-- == Satr Courses == -->
+
+    <!-- Statistics -->
+
+    <section style="background-color: rgb(245 245 247)" class="cards-section">
+      <div class="cards-content container-xxl d-flex flex-column gap-3">
+        <div class="title-card d-flex flex-column">
+          <div class="tilte pt-4">
+            <h4 class="mx-4">أرقام الاكاديمية</h4>
+          </div>
+          <div class="stat-content d-flex flex-column flex-lg-row gap-3 p-5">
+            <div
+              style="background-color: white; width: 22.6875em"
+              class="partners position-relative rounded-4"
+            >
+              <img
+                src="https://tuwaiq.edu.sa/img/numbers_hero.png"
+                alt="companies-img"
+                class="object-fit-cover w-100 position-relative"
+              />
+              <div class="text-partner position-absolute top-0 p-5">
+                <h6 class="fw-normal">شراكة عالمية</h6>
+                <h5 class="fw-bold">+60</h5>
+                <p class="p-0 m-0 fw-light">شركة</p>
+              </div>
+            </div>
+
+            <div class="stat-rows d-flex flex-column w-75 gap-3">
+              <div class="stat-row-1 d-flex gap-3 h-50 flex-column flex-lg-row">
+                <div class="cont-bootcamps w-50">
+                  <div
+                    style="background-color: white"
+                    class="cont-bootcamps-card d-flex flex-column position-relative rounded-4 h-100 overflow-hidden"
+                  >
+                    <div class="cont-bootcamps-text m-5 mb-0">
+                      <h6 class="fw-normal">عدد المعسكرات والبرامج</h6>
+                      <h5 class="fw-bold">1,836</h5>
+                      <p class="p-0 m-0 fw-light">معسكر وبرنامج</p>
+                    </div>
+                    <div
+                      class="cont-bootcamps-img w-100 text-start position-absolute bottom-0"
+                    >
+                      <img
+                        src="https://tuwaiq.edu.sa/img/numberOfBootcampsAndPrograms.png"
+                        alt="bootcamps-programs"
+                        width="190"
+                        class="object-fit-cover images-phone"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cont-grad w-75">
+                  <div
+                    style="background-color: white"
+                    class="cont-grad-card position-relative rounded-4 h-100 overflow-hidden"
+                  >
+                    <div class="cont-grad-text m-5 mb-0">
+                      <h6 class="fw-normal">عــدد الخريجين</h6>
+                      <h5 class="fw-bold">32,016</h5>
+                      <p class="p-0 m-0 fw-light">متدرب حضوري</p>
+                    </div>
+                    <div
+                      class="cont-grad-img w-100 text-start position-absolute bottom-0"
+                    >
+                      <img
+                        src="https://tuwaiq.edu.sa/img/numberOfInPersonTrainees.png"
+                        alt="count-grad-img"
+                        class="object-fit-cover images-phone"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="stat-row-2 h-50">
+                <div class="d-flex flex-column flex-lg-row gap-3 h-100">
+                  <div class="satr-stat w-75 h-100">
+                    <div
+                      style="background-color: white"
+                      class="satr-stat-card position-relative rounded-4 h-100 overflow-hidden"
+                    >
+                      <div class="satr-stat-text m-5 mb-0">
+                        <h6 class="fw-normal">منــصــة ســـطــر</h6>
+                        <h5 class="fw-bold">888,565</h5>
+                        <p class="p-0 m-0 fw-light">متدرب</p>
+                      </div>
+                      <div class="w-100 text-start position-absolute bottom-0">
+                        <img
+                          src="https://tuwaiq.edu.sa/img/SatrPlatform.png"
+                          alt="sater-img"
+                          class="object-fit-cover images-phone"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="emp-rate w-50">
+                    <div
+                      style="background-color: white"
+                      class="emp-rate-card position-relative rounded-4 h-100 overflow-hidden"
+                    >
+                      <div class="emp-rate-text m-5 mb-0">
+                        <h6 class="fw-normal">نسبة توظيف خريجي المعسكرات</h6>
+                        <h5 class="fw-bold">80%</h5>
+                        <p class="p-0 m-0 fw-light">موظف</p>
+                      </div>
+                      <div
+                        class="emp-rate-img w-100 text-start position-absolute bottom-0"
+                      >
+                        <img
+                          src="https://tuwaiq.edu.sa/img/numberOfHiredGraduted.png"
+                          alt="job-img"
+                          class="object-fit-cover images-phone"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- == Statistics == -->
+
+    <!-- News -->
+
+    <section class="end-section container-xxl d-flex flex-column gap-3 my-4">
+      <div class="title-end d-flex justify-content-between align-items-center">
+        <div class="title-section d-flex align-items-center">
+          <h4 class="mx-4">اخر اخبار الأكاديمية</h4>
+        </div>
+        <div class="end-cards-arrows d-none d-md-block">
+          <span class="left">
+            <svg
+              style="width: 30px; background-color: rgb(238 238 238)"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="rounded-circle"
+              :class="{'!text-[#93726670]': theme === 'founding_day'}"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </span>
+
+          <span>
+            <svg
+              style="width: 30px; background-color: rgb(238 238 238)"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="rounded-circle"
+              :class="{'!text-[#93726670]': theme === 'founding_day'}"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        style="overflow-x: auto"
+        class="end-cards-section d-flex justify-content-between gap-3"
+      >
+        <div
+          class="card-news border-0 rounded-5 position-relative overflow-hidden"
+          style="
+            min-width: 21rem;
+            width: 22rem;
+            height: 30rem;
+            background-color: rgb(245 245 247);
+          "
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/landing/news/hg1ea1q1.4at.jpg"
+            class="object-fit-cover w-100 h-100"
+            alt="news-1-img"
+          />
+
+          <div
+            style="background-color: rgba(0, 0, 0, 0.3)"
+            class="card-overlay position-absolute top-50 start-50 translate-middle text-white w-100 h-100"
+          >
+            <div class="card-text position-absolute bottom-0 p-4">
+              <h6 class="card-title">
+                إطلاق "أكاديمية الكراج" بالشراكة مع أكاديمية طويق لدعم مشاريع
+                مُسرّعة وحاضنة الكراج
+              </h6>
+              <hr />
+              <div
+                class="text d-flex justify-content-between align-items-center"
+              >
+                <p class="fw-light m-0">05/05/2025</p>
+                <button class="bg-white rounded-5 border-0 p-1">
+                  <span class="card-btn-news d-none"> المزيد </span>
+                  <span>
+                    <svg
+                      class="group-hover:mr-4 left-[15px] absolute"
+                      :class="{'text-white': theme === 'founding_day'}"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      width="18"
+                      viewBox="0 0 384 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
+                      ></path>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="card-news border-0 rounded-5 position-relative overflow-hidden"
+          style="
+            min-width: 21rem;
+            width: 22rem;
+            height: 30rem;
+            background-color: rgb(245 245 247);
+          "
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/landing/news/ce2t3lcl.su1.png"
+            class="object-fit-cover w-100 h-100"
+            alt="news-2-img"
+          />
+
+          <div
+            style="background-color: rgba(0, 0, 0, 0.3)"
+            class="card-overlay position-absolute top-50 start-50 translate-middle text-white w-100 h-100"
+          >
+            <div class="card-text position-absolute bottom-0 p-4">
+              <h6 class="card-title">
+                طلاب أكاديمية طويق ومدارس مسك يحصدون 4 ميداليات ذهبية وبرونزية
+                في مسابقة معرض جنيف الدولي للاختراعات
+              </h6>
+              <hr />
+              <div
+                class="text d-flex justify-content-between align-items-center"
+              >
+                <p class="fw-light m-0">13/04/2025</p>
+                <button class="bg-white rounded-5 border-0 p-1">
+                  <span class="card-btn-news d-none"> المزيد </span>
+                  <span>
+                    <svg
+                      class="group-hover:mr-4 left-[15px] absolute"
+                      :class="{'text-white': theme === 'founding_day'}"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      width="18"
+                      viewBox="0 0 384 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
+                      ></path>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="card-news border-0 rounded-5 position-relative overflow-hidden"
+          style="
+            min-width: 21rem;
+            height: 30rem;
+            background-color: rgb(245 245 247);
+          "
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/landing/news/15mnxx1h.n5k.png"
+            class="object-fit-cover w-100 h-100"
+            alt="news-3-img"
+          />
+
+          <div
+            style="background-color: rgba(0, 0, 0, 0.3)"
+            class="card-overlay position-absolute top-50 start-50 translate-middle text-white w-100 h-100"
+          >
+            <div class="card-text position-absolute bottom-0 p-4">
+              <h6 class="card-title">
+                أكاديمية طويق تحتفي بفوز طالباتها في تحدي آبل العالمي
+              </h6>
+              <hr />
+              <div
+                class="text d-flex justify-content-between align-items-center"
+              >
+                <p class="fw-light m-0">10/04/2025</p>
+                <button class="bg-white rounded-5 border-0 p-1">
+                  <span class="card-btn-news d-none"> المزيد </span>
+                  <span>
+                    <svg
+                      class="group-hover:mr-4 left-[15px] absolute"
+                      :class="{'text-white': theme === 'founding_day'}"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      width="18"
+                      viewBox="0 0 384 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
+                      ></path>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="card-news border-0 rounded-5 position-relative overflow-hidden"
+          style="
+            min-width: 21rem;
+            width: 22rem;
+            height: 30rem;
+            background-color: rgb(245 245 247);
+          "
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/landing/news/wdpsjse5.zqv.jpeg"
+            class="object-fit-cover w-100 h-100"
+            alt="news-4-img"
+          />
+
+          <div
+            style="background-color: rgba(0, 0, 0, 0.3)"
+            class="card-overlay position-absolute top-50 start-50 translate-middle text-white w-100 h-100"
+          >
+            <div class="card-text position-absolute bottom-0 p-4">
+              <h6 class="card-title">
+                أكاديمية طويق تطلق برنامج قادة تقنيات المستقبل برعاية البرنامج
+                الوطني لتنمية تقنية المعلومات
+              </h6>
+              <hr />
+              <div
+                class="text d-flex justify-content-between align-items-center"
+              >
+                <p class="fw-light m-0">05/05/2025</p>
+                <button class="bg-white rounded-5 border-0 p-1">
+                  <span class="card-btn-news d-none"> المزيد </span>
+                  <span>
+                    <svg
+                      class="group-hover:mr-4 left-[15px] absolute"
+                      :class="{'text-white': theme === 'founding_day'}"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      width="18"
+                      viewBox="0 0 384 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
+                      ></path>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="card-news border-0 rounded-5 position-relative overflow-hidden"
+          style="
+            min-width: 21rem;
+            width: 22rem;
+            height: 30rem;
+            background-color: rgb(245 245 247);
+          "
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/landing/news/yyjmdv1u.4sj.jpg"
+            class="object-fit-cover w-100 h-100"
+            alt="news-5-img"
+          />
+
+          <div
+            style="background-color: rgba(0, 0, 0, 0.3)"
+            class="card-overlay position-absolute top-50 start-50 translate-middle text-white w-100 h-100"
+          >
+            <div class="card-text position-absolute bottom-0 p-4">
+              <h6 class="card-title">
+                اختتام "برنامج طويق للتوظيف" بأكثر من 8,000 مقابلة في 120 جهة
+              </h6>
+              <hr />
+              <div
+                class="text d-flex justify-content-between align-items-center"
+              >
+                <p class="fw-light m-0">27/02/2025</p>
+                <button class="bg-white rounded-5 border-0 p-1">
+                  <span class="card-btn-news d-none"> المزيد </span>
+                  <span>
+                    <svg
+                      class="group-hover:mr-4 left-[15px] absolute"
+                      :class="{'text-white': theme === 'founding_day'}"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      width="18"
+                      viewBox="0 0 384 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
+                      ></path>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="card-news border-0 rounded-5 position-relative overflow-hidden"
+          style="
+            min-width: 21rem;
+            width: 22rem;
+            height: 30rem;
+            background-color: rgb(245 245 247);
+          "
+        >
+          <img
+            src="https://cdn.tuwaiq.edu.sa/landing/news/bpojv2if.wtw.jpg"
+            class="object-fit-cover w-100 h-100"
+            alt="news-6-img"
+          />
+
+          <div
+            style="background-color: rgba(0, 0, 0, 0.3)"
+            class="card-overlay position-absolute top-50 start-50 translate-middle text-white w-100 h-100"
+          >
+            <div class="card-text position-absolute bottom-0 p-4">
+              <h6 class="card-title">
+                أكاديمية طويق تفوز بجائزة "الازدهار الرقمي" من منظمة التعاون
+                الرقمي الدولية
+              </h6>
+              <hr />
+              <div
+                class="text d-flex justify-content-between align-items-center"
+              >
+                <p class="fw-light m-0">20/02/2025</p>
+                <button class="bg-white rounded-5 border-0 p-1">
+                  <span class="card-btn-news d-none"> المزيد </span>
+                  <span>
+                    <svg
+                      class="group-hover:mr-4 left-[15px] absolute"
+                      :class="{'text-white': theme === 'founding_day'}"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      width="18"
+                      viewBox="0 0 384 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M48 96c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-185.4L324.7 411.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L86.6 128 272 128c8.8 0 16-7.2 16-16s-7.2-16-16-16L48 96z"
+                      ></path>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- == News == -->
+
+    <!--NewLetter  -->
+
+    <section
+      style="background-color: rgb(180 235 231)"
+      class="newletter-section"
+    >
+      <div
+        class="newletter-section-content container-xxl d-flex rounded-4 flex-column p-4 my-5 overflow-hidden"
+      >
+        <div class="title-section">
+          <h2 style="color: rgb(100 56 221)" class="">
+            أشترك في النشرة البريدية
+          </h2>
+        </div>
+
+        <div
+          class="newletter-content d-flex justify-content-center justify-content-md-between align-items-center"
+        >
+          <div class="form d-block d-md-flex flex-column">
+            <form class="d-flex flex-column gap-3">
+              <div class="d-flex flex-column flex-md-row gap-3">
+                <input
+                  style="height: 3.5em"
+                  class="form-control"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="الاسم الاول"
+                />
+                <input
+                  style="height: 3.5em"
+                  class="form-control"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="الاسم الاخير"
+                />
+              </div>
+              <div class="d-flex flex-column flex-md-row gap-3">
+                <input
+                  style="height: 3.5em"
+                  class="form-control"
+                  type="email"
+                  name=""
+                  id=""
+                  placeholder="name@email.com"
+                />
+                <button
+                  style="background-color: rgb(79 41 183)"
+                  class="newletter-btn btn btn-light text-white w-50"
+                >
+                  أشترك الان
+                  <span class="text-white">
+                    <svg
+                      class="w-[2.3rem] fill-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                      style="width: 15px; fill: white"
+                    >
+                      <path
+                        class="fa-secondary"
+                        opacity="1"
+                        d="M0 288c0 .7 0 1.3 .1 2c.8 12.2 8.4 22.9 19.6 27.6l112 46.7L160 376l0-8c0-4.2 1.7-8.3 4.7-11.3l13-13c59.6-59.6 119.2-119.2 178.8-178.7c.1-.1 .2-.2 .2-.3c3-3 6.8-4.5 10.7-4.7s7.9 1.1 11 3.9c3.7 3.3 5.6 7.7 5.6 12.1c0 3.4-1.1 6.8-3.3 9.7L224 389.4l0 13.2c20 8.3 40 16.7 60 25c39.9 16.6 79.8 33.2 119.7 49.9c9.1 3.8 19.4 3.2 28-1.6s14.5-13.3 16-23l64-416c1.9-12.1-3.4-24.3-13.5-31.2C492.7 1.9 486.4 0 480 0c-5.5 0-10.9 1.4-15.9 4.2l-448 256C6.1 265.9 0 276.6 0 288z"
+                      ></path>
+                      <path
+                        class="fa-primary"
+                        opacity="0.4"
+                        d="M380.7 185.8c5.1-6.7 4.2-16.2-2.1-21.8s-15.9-5.3-21.9 .7l-179 179-13 13c-3 3-4.7 7.1-4.7 11.3l0 8 0 56 0 48c0 13.2 8.1 25 20.3 29.8s26.2 1.6 35.2-8.1L284 427.7l-60-25 0-13.2L380.7 185.8z"
+                      ></path>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div
+            style="margin-bottom: -25px"
+            class="newletter-image d-none d-md-block"
+          >
+            <img
+              src="https://tuwaiq.edu.sa/img/ART/Asset%209.svg"
+              alt="newletter-img"
+              width="288"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- == NewLetter ==  -->
+
+    <!-- == Content == -->
     <!-- Footer -->
 
+    
+    <footer class="text-center  rounded-5 " style="background-color: #e3d8ff;">
+      <div
+        class="container-xxl px-4 mx-auto rounded-5 align-content-center py-3 "
+        style=" color: #4f29b7;"
+      >
+        <div class="row align-items-center justify-content-between">
+
+          <div class="col-md-3 text-center text-md-start mb-4 ">
+            <a
+              href="#"
+              class="d-flex align-items-center justify-content-center justify-content-md-start"
+            >
+            <img
+              src="https://cdn.tuwaiq.edu.sa/landing/images/logo/logo-h.png"
+                alt="Tuwaiq Academy"
+                class="h-20"
+                width="160"
+              />
+            </a>
+          </div>
+
+          <!-- Links -->
+          <div class="col-md-6">
+            <div class="row  text-md-start">
+
+              <div class="col-6 col-md-6 mb-4 mb-md-0">
+                <ul class="list-unstyled  fw-medium">
+                  <li class="mb-2">
+                    <a
+                      href="#"
+                      style="color: #4f29b7; text-decoration-line: none"
+                      >شارك كمدرب</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="about.html"
+                      style="color: #4f29b7; text-decoration-line: none"
+                      >حول الأكاديمية</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-6 col-md-6 mb-4 mb-md-0">
+                <ul class="list-unstyled mb-0 fw-medium">
+                  <li class="mb-2">
+                    <a
+                      href="#"
+                      style="color: #4f29b7; text-decoration-line: none"
+                      >سياسة الخصوصية</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      style="color: #4f29b7; text-decoration-line: none"
+                      >الشروط والأحكام</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <div class="row align-items-center justify-content-between">
+          <div class="col-md-6 order-md-1 mt-4 mt-md-0 text-center text-md-end mb-3 mb-md-0 ">
+            <span class=" text-muted">
+              © 2025
+              <a
+                href="https://tuwaiq.edu.sa/"
+                style="color: #4f29b7; text-decoration-line: none"
+                >أكاديمية طويق</a
+              >. جميع الحقوق محفوظة.
+            </span>
+          </div>
+
+          <div
+            class="col-md-6 d-flex justify-content-center justify-content-md-end order-1 order-md-2 mb-4 mb-md-0"
+          >
+            <div class="d-flex gap-3">
+              <a
+                href="https://www.linkedin.com/company/tuwaiqacademy"
+                class="text-white"
+                aria-label="LinkedIn"
+              >
+                <svg
+                style="background-color: #4f29b7;"
+                  class="rounded-5 p-2"
+                  width="40"
+                  height="35"
+                  viewBox="0 0 448 512"
+                  fill="#fff"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill="#ffffff"
+                    d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="https://www.snapchat.com/add/tuwaiqacademy"
+                class="text-white "
+                aria-label="Snapchat"
+              >
+                <svg
+                style="background-color: #4f29b7;"
+                class="rounded-5 p-2"
+                width="40"
+                height="35"
+                  viewBox="0 0 512 512"
+                  fill="#fff"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill="#ffffff"
+                    d="M496.9 366.6c-3.4-9.2-9.8-14.1-17.1-18.2c-1.4-.8-2.6-1.5-3.7-1.9c-2.2-1.1-4.4-2.2-6.6-3.4c-22.8-12.1-40.6-27.3-53-45.4a102.9 102.9 0 0 1 -9.1-16.1c-1.1-3-1-4.7-.2-6.3a10.2 10.2 0 0 1 2.9-3c3.9-2.6 8-5.2 10.7-7c4.9-3.2 8.8-5.7 11.2-7.4c9.4-6.5 15.9-13.5 20-21.3a42.4 42.4 0 0 0 2.1-35.2c-6.2-16.3-21.6-26.4-40.3-26.4a55.5 55.5 0 0 0 -11.7 1.2c-1-.2-2.1-.5-3.1-.7c.2-11.2-.1-22.9-1.1-34.5c-3.5-40.8-17.8-62.1-32.7-79.2A130.2 130.2 0 0 0 332.1 36.4C309.5 23.5 283.9 17 256 17S202.6 23.5 180 36.4a129.7 129.7 0 0 0 -33.3 26.8c-14.9 17-29.2 38.4-32.7 79.2c-1 11.6-1.2 23.4-1.1 34.5c-1-.3-2-.5-3.1-.7a55.5 55.5 0 0 0 -11.7-1.2c-18.7 0-34.1 10.1-40.3 26.4a42.4 42.4 0 0 0 2 35.2c4.1 7.8 10.7 14.7 20 21.3c2.5 1.7 6.4 4.2 11.2 7.4c2.6 1.7 6.5 4.2 10.3 6.7a11.1 11.1 0 0 1 3.3 3.3c.8 1.6 .8 3.4-.4 6.6a102 102 0 0 1 -8.9 15.8c-12.1 17.7-29.4 32.6-51.4 44.6C32.4 348.6 20.2 352.8 15.1 366.7c-3.9 10.5-1.3 22.5 8.5 32.6a49.1 49.1 0 0 0 12.4 9.4 134.3 134.3 0 0 0 30.3 12.1 20 20 0 0 1 6.1 2.7c3.6 3.1 3.1 7.9 7.8 14.8a34.5 34.5 0 0 0 9 9.1c10 6.9 21.3 7.4 33.2 7.8c10.8 .4 23 .9 36.9 5.5c5.8 1.9 11.8 5.6 18.7 9.9C194.8 481 217.7 495 256 495s61.3-14.1 78.1-24.4c6.9-4.2 12.9-7.9 18.5-9.8c13.9-4.6 26.2-5.1 36.9-5.5c11.9-.5 23.2-.9 33.2-7.8a34.6 34.6 0 0 0 10.2-11.2c3.4-5.8 3.3-9.9 6.6-12.8a19 19 0 0 1 5.8-2.6A134.9 134.9 0 0 0 476 408.7a48.3 48.3 0 0 0 13-10.2l.1-.1C498.4 388.5 500.7 376.9 496.9 366.6z"
+                  />
+                </svg>
+              </a>
+
+           
+              <a
+                href="https://www.youtube.com/channel/UC_pOwgeaVK7bg3z7fJB5N8w"
+                class="text-white"
+                aria-label="YouTube"
+              >
+                <svg
+                style="background-color: #4f29b7;"
+                class="rounded-5 p-2"
+                width="40"
+                height="35"
+                  viewBox="0 0 576 512"
+                  fill="#fff"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill="#ffffff"
+                    d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="https://twitter.com/TuwaiqAcademy"
+                class="text-white "
+                aria-label="Twitter"
+              >
+                <svg
+                style="background-color: #4f29b7;"
+                class="rounded-5 p-2"
+                width="40"
+                height="35"
+                  viewBox="0 0 512 512"
+                  fill="#fff"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill="#ffffff"
+                    d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+                  />
+                </svg>
+              </a>
+
+
+              <a
+                href="https://discord.gg/DWpUH7wFxj"
+                class="text-white "
+                aria-label="Discord"
+              >
+                <svg
+                style="background-color: #4f29b7;"
+                class="rounded-5 p-2"
+                width="40"
+                height="35"
+                  viewBox="0 0 21 16"
+                  fill="#fff"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                <path d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="made-by">
+          <h6 class="m-0 mt-5">Made By <span><a href="https://github.com/AhmedY29" target="_blank">Ahmed</a></span> | <span><a href="https://github.com/shouqak " target="_blank">Shouq</a></span></h6>
+        </div>
+      </div>
+    </footer>
     <!-- == Footer == -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
